@@ -21,5 +21,5 @@
 .input-search-navbar:focus {
     background-color: white;
     border: 1px solid white;
-    min-width: 276px;
+    min-width: 250px;
 }
