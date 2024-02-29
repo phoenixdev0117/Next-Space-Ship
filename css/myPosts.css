@@ -19,3 +19,7 @@
 .container-buttons-home {
     justify-content: space-between;
 }
+
+.navbar {
+    background-color: var(--color-primary);
+}

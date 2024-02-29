@@ -1,0 +1,46 @@
+.account-settings-bar {
+    background-color: var(--color-body-general);
+}
+
+.account-settings-button {
+    background-color: #248558b2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.account-settings-button:hover {
+    background-color: #005ce6;
+    color: white;
+
+}
+
+.account-settings-button:active {
+    background-color: #005ce6;
+    color: white;
+}
+
+.account-settings-button-selected {
+    background-color: #114c6c;
+    color: white;
+    border: none;
+}
+
+.button-div {
+    border-bottom: 2px solid #0364d4;
+}
+
+.button-div-selected {
+    border-bottom: 3px solid rgb(23, 214, 195);
+}
+
+.navbar {
+    background-color: var(--color-primary);
+}
