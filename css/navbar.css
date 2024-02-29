@@ -1,0 +1,25 @@
+.icon-search-navbar {
+    color: white;
+    background-color: var(--color-primary-light);
+    border-radius: 30%;
+    border: 1px solid rgb(185, 196, 200);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.icon-search-navbar:hover {
+    background-color: var(--color-primary-dark);
+    color: white;
+    border: 2px solid rgb(185, 196, 200);
+}
+
+.input-search-navbar {
+    border: 1px solid #cccccc;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.input-search-navbar:focus {
+    background-color: white;
+    border: 1px solid white;
+    min-width: 276px;
+}

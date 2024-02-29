@@ -1,0 +1,6 @@
+.register-form {
+    background-color: var(--color-primary-dark);
+    color: white;
+    font-weight: 800;
+    font-family: var(--font-family);
+}

@@ -1,0 +1,42 @@
+/* TODO: Here we can put all the global variables for the project and 
+things components that are in common for all the pages.
+For example, the main and secondary colors that we are going to use
+through the entire development, the navbar and the footer, etc...*/
+body {
+    background-color: var(--color-body-general);
+}
+
+.navbar {
+    background-color: var(--color-primary);
+    /* border-top: 1px solid black; */
+    border-bottom: 3px solid rgba(4, 32, 144, 0.737);
+}
+
+:root {
+    --color-primary: rgb(0, 60, 255);
+    --color-primary-light: #195fc8;
+    --color-primary-dark: #022c8f;
+    --color-secondary: #6c757d;
+    --color-secondary-light: #9ea3a8;
+    --color-secondary-dark: #343a40;
+    --color-body-general: rgba(20, 66, 156, 0.133);
+    --font-family: 'Roboto', sans-serif;
+}
+
+.footer {
+    background-color: var(--color-primary-dark);
+    border-top: 2px solid black;
+    /* position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center; */
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.423);
+    object-fit: cover;
+}
