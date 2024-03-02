@@ -24,7 +24,7 @@
             <div class="container justify-content-between align-items-center">
                 <!-- Logo at the left -->
                 <div class="d-none d-md-block">
-                    <a class="navbar-brand" href="#">SpaceShipForum - My Account</a>
+                    <a class="navbar-brand" href="#">SpaceShipForum - Settings</a>
                     <svg xmlns="http://www.w3.org/2000/svg" height="20" fill="white" class="bi bi-airplane-engines-fill"
                         viewBox="0 0 16 16">
                         <path
@@ -93,23 +93,23 @@
                     <!-- TODO: Ademas, cada button tiene un contenedor div que tiene la clase button-div cuando no ha
                 sido la opcion seleccionada, pero que ademas tiene la clase button-div-selected cuando
             ha sido seleccionada-->
-                    <div class="button-div button-div-selected">
-                        <button class="btn btn-info account-settings-button
-                        account-settings-button-selected" id="btnMyProfile">Profile</button>
+                    <div class="button-div">
+                        <a class="btn btn-info account-settings-button" href="myAccount.html"
+                            id="btnMyProfile">Profile</a>
                     </div>
 
                     <div class="button-div">
                         <button class="btn btn-info account-settings-button" id="btnSecurity">Security</button>
                     </div>
 
-                    <div class="button-div">
+                    <div class="button-div ">
                         <a class="btn btn-info account-settings-button" href="messages.html"
                             id="btnMessages">Messages</a>
                     </div>
 
-                    <div class="button-div">
-                        <a class="btn btn-info account-settings-button" href='settings.html'
-                            id="btnSettings">Settings</a>
+                    <div class="button-div button-div-selected">
+                        <a class="btn btn-info account-settings-button account-settings-button-selected"
+                            href="settings.html" id="btnSettings">Settings</a>
                     </div>
 
                 </div>
@@ -121,7 +121,7 @@
 
 
             <div class="col-11 col-md-8 col-lg-8 my-4 py-3 mx-2 userSection">
-                <!-- Account -->
+                <!-- Settings -->
                 <div class="container d-flex flex-column align-items-center justify-content-center">
                     <form class="was-validated d-flex flex-column align-items-center justify-content-center">
 
@@ -131,112 +131,37 @@
                         <img src="../resources/logo.jpeg" class="img-fluid profileImage my-3" alt="...">
 
 
-                        <!-- Profile Picture Section-->
+                        <!-- Notifications -->
                         <div class="mb-3 text-center">
-                            <input type="file" class="form-control" aria-label="file example" required>
-                            <div class="invalid-feedback">File invalid, please try again.</div>
+                            <h3>Notifications</h3>
+                            <div class="form-check d-flex flex-row">
+                                <input class="form-check" type="checkbox" value="" id="flexCheckDefault" checked>
+                                <label class="form-check" for="flexCheckDefault">Sound</label>
+                            </div>
+                            <div class="form-check d-flex flex-row">
+                                <input class="form-check" type="checkbox" value="" id="flexCheckDefault" checked>
+                                <label class="form-check" for="flexCheckDefault">NONE</label>
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="mb-3 text-center">
+                            <button class="btn btn-primary" type="submit" enabled>Save</button>
                         </div>
 
-                        <div class="mb-3 text-center">
-                            <button class="btn btn-primary" type="submit" disabled>Save</button>
-                            <!-- TODO: We need to add the functionality to this button
-                            through JavaScript: the button has to be enabled only when
-                        all the field of the form are valid -->
-                        </div>
-                        <!-- <div class="mb-3">
-                            <label for="validationTextarea" class="form-label">Description</label>
-                            <textarea class="form-control" id="validationTextarea"
-                                placeholder="Required example textarea" required></textarea>
-                            <div class="invalid-feedback">
-                                Please enter a description in the textarea.
-                            </div>
-                        </div> -->
 
-                        <!-- Username section-->
-                        <!-- <div class="col-md-5 text-center mx-auto">
-                            <label for="validationServerUsername" class="form-label">Username</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                                <input type="text" class="form-control is-invalid" id="validationServerUsername"
-                                    aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
-                                <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- Email section-->
-                        <!-- <div class="col-md-5 text-center mx-auto">
-                            <label for="validationServerEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control is-invalid" id="validationServerEmail"
-                                aria-describedby="validationServerEmailFeedback" required>
-                            <div id="validationServerEmailFeedback" class="invalid-feedback">
-                                Please choose a valid email.
-                            </div>
-                        </div> -->
-
-                        <!-- Password section-->
-                        <!-- <div class="col-md-5 text-center mx-auto">
-                            <label for="validationServerPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control is-invalid" id="validationServerPassword"
-                                aria-describedby="validationServerPasswordFeedback" required>
-                            <div id="validationServerPasswordFeedback" class="invalid-feedback">
-                                Please choose a password.
-                            </div>
-                        </div> -->
-                        <!-- Confirm Password section-->
-                        <!-- <div class="col-md-5 text-center mx-auto">
-                            <label for="validationServerConfirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control is-invalid" id="validationServerConfirmPassword"
-                                aria-describedby="validationServerConfirmPasswordFeedback" required>
-                            <div id="validationServerConfirmPasswordFeedback" class="invalid-feedback">
-                                Please confirm your password.
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="mb-3 text-center">
-                            <select class="form-select" required aria-label="select example">
-                                <option value="">Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                            <div class="invalid-feedback">Example invalid select feedback</div>
-                        </div> -->
                     </form>
 
                 </div>
-                <!--Account END-->
+
 
             </div>
 
-
-            <div class="col-md-4 d-none d-md-block mx-2">
-                <!-- All widgets -->
-                <h4>Notifications and widgets here (to figure it out)
-                    - Only you can see this if
-                    you are not in a mobile device.
-                </h4>
-
-                <!-- <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Search Panel</h5>
-              <form>
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Search...">
-                </div>
-                <button type="submit" class="btn btn-primary home-btn-search">Search</button>
-              </form>
-            </div>
-          </div>
-        </div> -->
-
-            </div>
+        </div>
         </div>
 
         </div>
 
-        <footer class="footer py-4 d-flex justify-content-center">
+        <footer class=" footer py-4 d-flex justify-content-center">
             <div class="d-flex justify-content-center px-4 py-2">
                 <span class="text-white fw-bold">2024 - SpaceShipForum</span>
             </div>
@@ -248,7 +173,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-        <script src="../js/myAccount/myAccount.js">
+        <script src="../js/myAccount/messages.js">
         </script>
 
     </body>

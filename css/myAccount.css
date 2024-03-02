@@ -44,3 +44,27 @@
 .navbar {
     background-color: var(--color-primary);
 }
+
+.profileImage {
+    height: 100px;
+    width: 100px;
+    border-radius: 10%;
+    margin: 0 auto;
+    display: block;
+    border: 2px solid white;
+}
+
+.userSection {
+    /* padding-top: 20px; */
+    text-align: center;
+    background-color: rgba(7, 132, 248, 0.205);
+    border: 1px solid #0364d4;
+    border-radius: 5px;
+    color: white;
+
+}
+
+.username {
+    font-size: 20px;
+    font-weight: bold;
+}
