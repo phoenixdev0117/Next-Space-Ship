@@ -99,12 +99,17 @@
                     </div>
 
                     <div class="button-div">
-                        <button class="btn btn-info account-settings-button" id="btnSecurity">Security</button>
+                        <a class="btn btn-info account-settings-button" id="btnSecurity">Security</a>
                     </div>
 
                     <div class="button-div button-div-selected">
                         <a class="btn btn-info account-settings-button
-                        account-settings-button-selected" href="messages.html" id="btnMessages">Messages</a>
+                        account-settings-button-selected" href="messages.html" id="btnMessages">Messages
+                            <!-- TODO:  Modify dynamically the number of the badge with help of Firebase -->
+                            <span id='firebaseBadge' class=" d-none d-sm-inline 
+                            firebaseBadge badge text-bg-danger">5</span>
+                        </a>
+
                     </div>
 
                     <div class="button-div">
