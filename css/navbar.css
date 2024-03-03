@@ -11,6 +11,7 @@
     background-color: var(--color-primary-dark);
     color: white;
     border: 2px solid rgb(185, 196, 200);
+
 }
 
 .input-search-navbar {
@@ -21,5 +22,22 @@
 .input-search-navbar:focus {
     background-color: white;
     border: 1px solid white;
-    min-width: 250px;
+    animation: all 0.15s ease-in-out forwards;
+}
+
+.navbar-logo {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    object-fit: cover;
+    margin: 2px auto;
+    /* transform: scale(1.5); */
+}
+
+
+
+@keyframes all {
+    100% {
+        min-width: 230px;
+    }
 }
