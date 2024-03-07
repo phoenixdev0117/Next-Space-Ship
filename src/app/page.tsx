@@ -20,6 +20,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+import { CustomDrawer } from "@/components/CustomDrawer";
 
 
 export default function Home() {
@@ -30,33 +31,24 @@ export default function Home() {
       </header>
       <main className="flex flex-col justify-center items-center h-screen">
         <div className="flex flex-row justify-center items-center w-full bg-amber-700">
-          <section className="flex-initial w-8/12 flex-col w-8/10 mr-2 bg-green-500 gap-2">
-            <Button variant={"outline"}>Space-Ship-Forum</Button>
+          <section className="text-center flex-initial space-y-20 w-8/12 flex-col w-8/10 m-1 bg-green-500/50 gap-2">
 
+            <Button variant={"outline"}>Space-Ship-Forum</Button>
             <h1>The initial posts are settled here below</h1>
 
-            <Drawer>
-              <DrawerTrigger>
-                <Button variant="outline">See more</Button>
-              </DrawerTrigger>
-              <DrawerContent>
-                <DrawerHeader>
-                  <DrawerTitle>POST DYNAMIC TITTLE</DrawerTitle>
-                  <DrawerDescription>POST INFORMATION</DrawerDescription>
-                </DrawerHeader>
-                <DrawerFooter>
-                  <Button>VIEW MORE</Button>
-                  <DrawerClose>
-                    <Button variant="outline">CLOSE</Button>
-                  </DrawerClose>
-                </DrawerFooter>
-              </DrawerContent>
-            </Drawer>
+            <CustomDrawer title="POST DYNAMIC 1" description="POST INFORMATION" />
+            <CustomDrawer title="POST DYNAMIC 2" description="POST INFORMATION" />
+            <CustomDrawer title="POST DYNAMIC 3" description="POST INFORMATION" />
+            <CustomDrawer title="POST DYNAMIC 4" description="POST INFORMATION" />
+            <CustomDrawer title="POST DYNAMIC 5" description="POST INFORMATION" />
+
 
           </section>
-          <section className="flex-initial w-3/12 bg-fuchsia-600">
+
+          <section className="flex-initial w-3/12 bg-fuchsia-600 h-72">
             Section of widgets
           </section>
+
         </div>
 
         <div>
