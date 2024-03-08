@@ -11,6 +11,7 @@ import {
     DrawerTitle,
     DrawerTrigger,
 } from "@/components/ui/drawer"
+import { CustomCard } from "@/components/CardCustom";
 
 interface CustomDrawerProps {
     title: string;
@@ -21,27 +22,27 @@ export const CustomDrawer: React.FC<CustomDrawerProps> = ({ title, description }
 
 
     return (
-        <div className="flex justify-center items-center bg-blue-500 m-sm-4 p-1">
+        <div className="flex flex-col justify-start items-center">
             <Drawer>
-                <DrawerTrigger>
+                <DrawerTrigger className='w-11/12'>
                     {/* <Button variant="outline">See more</Button> */}
-                    <span>Open the custom drawer</span>
+                    <CustomCard title={title} description={description} />
                 </DrawerTrigger>
                 <DrawerContent>
-                    <DrawerHeader>
-                        <DrawerTitle>{title}</DrawerTitle>
-                        <DrawerDescription>{description}</DrawerDescription>
+                    <DrawerHeader className='h-96 flex flex-col justify-around'>
+                        <DrawerTitle className='text-center'>{title}</DrawerTitle>
+                        <DrawerDescription className='text-center'>{description}</DrawerDescription>
                     </DrawerHeader>
                     <DrawerFooter>
                         {/* <Button >VIEW MORE</Button> */}
-                        <DrawerClose>
+                        <DrawerClose className="bg-red-700 h-12 text-xl font-bold">
                             {/* <Button variant="outline">CLOSE</Button> */}
                             CLOSE
                         </DrawerClose>
                     </DrawerFooter>
                 </DrawerContent>
-            </Drawer>
-        </div>
+            </Drawer >
+        </div >
     );
 };
 
