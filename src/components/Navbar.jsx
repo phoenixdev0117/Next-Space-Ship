@@ -21,31 +21,28 @@ export const Navbar = () => {
             <div className="flex flex-row justify-between px-4 md:px-6 lg:px-8 ">
                 <div className="flex flex-row justify-end w-7/12 items-center ">
                     <div className="flex-shrink-0">
+
                         <Image
                             src="/logo.jpeg"
                             width={50}
                             height={50}
                             alt="Forum Logo"
-                            className='rounded-full'
+                            className='rounded-full self-center border-2 border-cyan-400 border-solid'
                         />
                     </div>
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-center space-x-4">
                             <Link href="/">
-                                <p className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
-                                rounded-md text-sm font-medium">Home</p>
+                                <button className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
+                                rounded-md text-sm font-medium">Home</button>
                             </Link>
-                            <Link href="/Login">
-                                <p className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
-                                rounded-md text-sm font-medium">Login</p>
-                            </Link>
-                            <Link href="/Register">
-                                <p className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
-                                rounded-md text-sm font-medium">Register</p>
-                            </Link>
+                            {/* <Link href="/Login">
+                                <button className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
+                                rounded-md text-sm font-medium">Login</button>
+                            </Link> */}
                             <Link href="/Account">
-                                <p className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
-                                rounded-md text-sm font-medium">Account</p>
+                                <button className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
+                                rounded-md text-sm font-medium">Account</button>
                             </Link>
                         </div>
                     </div>
@@ -57,23 +54,27 @@ export const Navbar = () => {
 
             <div className={`md:hidden text-center`}>
                 <div className="px-2 pt-2 pb-3 md:px-3">
-                    <span className="block text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                    <button className="block text-gray-300 w-full hover:bg-teal-500/70 hover:text-white px-3 py-2 rounded-md text-base font-medium"
                         onClick={toggleAccordion}>
-                        Open the Menu (Accordion)
-                    </span>
+                        {isOpen ? `Close menu` : `Open the Menu (Accordion)`}
+                    </button>
                     {isOpen && (
                         <>
                             <Link href="/">
-                                <p className="block text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</p>
+                                <button className="w-full block text-gray-300 hover:bg-teal-500/70
+                                 hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</button>
                             </Link>
                             <Link href="/Login">
-                                <p className="block text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 rounded-md text-base font-medium">About</p>
+                                <button className="w-full block text-gray-300 hover:bg-teal-500/70
+                                 hover:text-white px-3 py-2 rounded-md text-base font-medium">Log in</button>
                             </Link>
                             <Link href="/Register">
-                                <p className="block text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact</p>
+                                <button className="w-full block text-gray-300 hover:bg-teal-500/70
+                                 hover:text-white px-3 py-2 rounded-md text-base font-medium">Register</button>
                             </Link>
                             <Link href="/Account">
-                                <p className="block text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 rounded-md text-base font-medium">Account</p>
+                                <button className="w-full block text-gray-300 hover:bg-teal-500/70
+                                 hover:text-white px-3 py-2 rounded-md text-base font-medium">Account</button>
                             </Link>
                         </>
                     )}

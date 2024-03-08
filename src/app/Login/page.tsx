@@ -4,6 +4,7 @@ import { CustomDrawer } from "@/components/DrawerCustom";
 import { PaginationCustom } from "@/components/PaginationCustom";
 import { CustomFooter } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { LoginTabs } from "@/components/LoginTabs";
 
 export default function RegisterPage() {
     return (
@@ -12,29 +13,18 @@ export default function RegisterPage() {
 
             <div className="flex flex-col sm:flex-row justify-center items-center w-full">
                 <div className="flex flex-col w-8/12 pb-10">
-                    <section className="text-center m-1 gap-2 py-10 my-6"
-                        style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
+                    <section className="text-center m-1 gap-2 py-10 my-6 bg-colorPrimaryDark
+                     border-colorSecondary border-solid border-2 rounded-md">
 
-                        <Button variant={"outline"}>Space-Ship-Forum Button</Button>
-                        <h1>The initial posts are settled here below</h1>
+                        <Button variant={"outline"}>Fire Ship Forum</Button>
+                        <h1 className="my-10">Log in:</h1>
 
-                        <CustomDrawer title="POST DYNAMIC 6" description="POST INFORMATION" />
+                        <LoginTabs>
 
-                    </section>
-                    <PaginationCustom currentPage={1} totalPages={10} onPageChange={() => console.log('1')} />
+                        </LoginTabs>
 
-                </div>
-
-                <div className="flex flex-row sm:flex-col w-3/12 ">
-                    <section className=" bg-fuchsia-600 h-72">
-                        Section of widgets 1
-                    </section>
-                    <section className="bg-fuchsia-600/40 h-72">
-                        Section of widgets 2
                     </section>
                 </div>
-
-
             </div>
 
 
