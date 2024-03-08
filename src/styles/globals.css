@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 221.2 83.2% 53.3%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 221.2 83.2% 53.3%;
+        --radius: 0.3rem;
+    }
+
+    .dark {
+        --background: rgba(2, 7, 19, 1);
+        --foreground: rgba(248, 250, 252, 1);
+        --card: rgba(2, 7, 19, 1);
+        --card-foreground: rgba(248, 250, 252, 1);
+        --popover: rgba(2, 7, 19, 1);
+        --popover-foreground: rgba(248, 250, 252, 1);
+        --primary: rgba(55, 128, 246, 1);
+        --primary-foreground: rgba(15, 23, 41, 1);
+        --secondary: rgba(29, 40, 57, 1);
+        --secondary-foreground: rgba(248, 250, 252, 1);
+        --muted: rgba(29, 40, 57, 1);
+        --muted-foreground: rgba(148, 163, 184, 1);
+        --accent: rgba(29, 40, 57, 1);
+        --accent-foreground: rgba(248, 250, 252, 1);
+        --destructive: rgba(124, 29, 29, 1);
+        --destructive-foreground: rgba(248, 250, 252, 1);
+        --border: rgba(29, 40, 57, 1);
+        --input: rgba(29, 40, 57, 1);
+        --ring: rgba(29, 79, 215, 1);
+
+        /* Colors from the last project */
+        --color-primary: rgb(37, 79, 168);
+        --color-primary-light: #0073ff;
+        --color-primary-dark: #022c8f;
+        --color-secondary: #6c757d;
+        --color-secondary-light: #9ea3a8;
+        --color-secondary-dark: #343a40;
+        --color-body-general: rgba(20, 65, 156, 0.279);
+        --font-family: 'Roboto', sans-serif;
+        --backgroundNavbar: rgba(10, 55, 75, 0.2);
+        --backgroundFooterBadges: rgba(1, 20, 60, 1);
+        --backgroundFooter: rgba(15, 15, 20, 1);
+    }
+}
