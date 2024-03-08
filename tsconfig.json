@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/PaginationCustom.jsx",
+    "src/components/PaginationCustom.tsx",
     "src/components/Navbar.jsx"
   ],
   "exclude": [

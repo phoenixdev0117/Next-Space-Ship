@@ -9,27 +9,28 @@ import {
 import { Badge } from "@/components/ui/badge"
 
 interface CustomCardProps {
-    title: string;
-    description: string;
+    data: object;
 }
 
-export const CustomCard: React.FC<CustomCardProps> = ({ title, description, ...props }) => {
-    return (
-        <Card style={{ backgroundColor: 'var(--card)', borderColor: 'white' }}
+export const CustomCard: React.FC<CustomCardProps> = ({ data, ...props }) => {
 
-            className="text-center flex-initial space-y-5
-          flex-col w-8/10 m-1 py-6 my-4 border-2 border-solid rounded-2xl">
+    return (
+        <Card className="text-center flex-initial space-y-5 border-white 
+        text-xs
+        font-medium bg-card 
+        transition duration-200 ease-in-out hover:bg-red-50
+          flex-col w-8/10 m-1 py-1 mt-2  border-2 border-solid rounded-2xl">
 
             <CardHeader>
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>{description}</CardDescription>
+                <CardTitle>{data.name}</CardTitle>
+                <CardDescription>{data.jutsu}</CardDescription>
             </CardHeader>
             <CardContent>
                 <p>Card Content</p>
             </CardContent>
             <CardFooter className="flex flex-row justify-around">
-                <p>Card Footer</p>
-                <Badge variant="default">Badge</Badge>
+                <p>Card Footer LEFT</p>
+                <Badge className='text-sm' variant="default">{data.name}</Badge>
             </CardFooter>
         </Card >
     )

@@ -1,37 +1,45 @@
 import { Button } from "@/components/ui/button";
 import { CustomDrawer } from "@/components/DrawerCustom";
 import { PaginationCustom } from "@/components/PaginationCustom";
+import { fetchCharacters } from "@/lib/narutoFetching";
+import { UserSheet } from "@/components/UserSheet";
+
+export default async function Home() {
 
 
-export default function Home() {
+  const characters = await fetchCharacters();
+
   return (
 
-    <main className="justify-center items-center">
+    <main>
 
-      <div className="flex flex-col sm:flex-row justify-center items-center w-full">
+      <div className="flex flex-col md:flex-row justify-center items-center w-full">
         <div className="flex flex-col w-8/12 pb-10">
           <section className="text-center m-1 gap-2 py-10 my-6"
             style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
 
-            <Button variant={"outline"}>Space-Ship-Forum Button</Button>
+            <button variant={"outline"}>Space-Ship-Forum Button</button>
             <h1>The initial posts are settled here below</h1>
 
-            <CustomDrawer title="POST DYNAMIC 1" description="POST INFORMATION" />
-            <CustomDrawer title="POST DYNAMIC 2" description="POST INFORMATION" />
-            <CustomDrawer title="POST DYNAMIC 3" description="POST INFORMATION" />
-            <CustomDrawer title="POST DYNAMIC 4" description="POST INFORMATION" />
-            <CustomDrawer title="POST DYNAMIC 5" description="POST INFORMATION" />
+            <CustomDrawer data={characters[13]} />
+            <CustomDrawer data={characters[6]} />
+            <CustomDrawer data={characters[15]} />
+            <CustomDrawer data={characters[17]} />
+            <CustomDrawer data={characters[1]} />
+            <CustomDrawer data={characters[18]} />
           </section>
           <PaginationCustom currentPage={1} totalPages={10} onPageChange={() => console.log('1')} />
 
         </div>
 
-        <div className="flex flex-row sm:flex-col w-3/12 ">
-          <section className=" bg-fuchsia-600 h-72">
-            Section of widgets 1
+        <div className="flex flex-row md:flex-col w-3/12 mt-6 h-screen self-start">
+          <section className="h-auto py-2">
+            <UserSheet>
+            </UserSheet>
           </section>
-          <section className="bg-fuchsia-600/40 h-72">
-            Section of widgets 2
+          <section className="bg-blue-600/40 h-auto py-6 rounded-lg">
+            <p>Section log-like:
+              NEW_USER_01 has commented on POST_NAME...</p>
           </section>
         </div>
 
@@ -43,3 +51,4 @@ export default function Home() {
 
   );
 }
+7

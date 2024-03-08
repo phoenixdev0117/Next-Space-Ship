@@ -7,11 +7,13 @@ export const CustomFooter = () => {
                 backgroundColor: 'var(--backgroundNavbar)',
                 borderTopColor: 'var(--color-secondary)'
             }}>
-            <div className="flex flex-col justify-center px-4 py-12 gap-5">
+            <div className="flex flex-col justify-center px-4 py-12">
 
                 <div className="absolute border-2 border-solid mb-20
-                self-center md:py-5 py-3 md:px-72 px-12 rounded-3xl"
-                    style={{ backgroundColor: 'var(--backgroundFooterBadges)', borderColor: 'var(--color-secondary)' }}>
+                self-center md:py-5 py-3 md:px-64 px-12 rounded-2xl border-b-4
+                transition duration-200 ease-in-out hover:border-b-cyan-200 border-white/35
+                 border-b-white/80
+                bg-backgroundFooterBadges hover:bg-colorPrimaryDark">
                     <span className='md:text-lg font-bold'>2024 - SpaceShipForum</span>
 
                     <div className='flex flex-row justify-center'>
@@ -20,7 +22,7 @@ export const CustomFooter = () => {
                             width={50}
                             height={50}
                             alt="Forum Logo"
-                            className='rounded-full border-4 border-solid'
+                            className='rounded-full border-2 border-white/50 border-solid'
                         />
                     </div>
 
