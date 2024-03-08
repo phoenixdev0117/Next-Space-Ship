@@ -1,10 +1,7 @@
 interface Character {
-    id: number;
     name: string;
-    village: string;
-    rank: string;
-    justu: Array<string>;
-    image: string;
+    justu: Array<string> | string;
+    images: string;
 }
 
 export async function fetchCharacters(): Promise<Character[]> {

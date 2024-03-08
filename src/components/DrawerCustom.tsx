@@ -15,14 +15,16 @@ import { CustomCard } from "@/components/CardCustom";
 import Image from 'next/image';
 
 interface CustomDrawerProps {
-    title: string;
-    description: string;
-    data: object;
+    data: {
+        name: string;
+        jutsu: string;
+        images: string;
+    };
 }
 
 
-export const CustomDrawer: React.FC<CustomDrawerProps> = ({ data }) => {
-
+export const CustomDrawer = ({ data }) => {
+    // : React.FC<CustomDrawerProps> 
 
     return (
         <div className="flex flex-col justify-start items-center">

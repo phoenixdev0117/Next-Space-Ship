@@ -8,11 +8,15 @@ import {
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
+
 interface CustomCardProps {
-    data: object;
+    data: {
+        name: string;
+        jutsu: string;
+    };
 }
 
-export const CustomCard: React.FC<CustomCardProps> = ({ data, ...props }) => {
+export const CustomCard: React.FC<CustomCardProps> = ({ data }) => {
 
     return (
         <Card className="text-center flex-initial space-y-5 border-white 

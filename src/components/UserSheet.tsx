@@ -14,10 +14,7 @@ import Image from 'next/image';
 
 
 interface CustomSheetProps {
-    title: string;
-    user: string,
     data: object;
-    description: string;
 }
 
 export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {

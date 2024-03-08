@@ -17,10 +17,10 @@ export default function AccountPage() {
                         style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
 
                         <Button variant={"outline"}>Space-Ship-Forum - My Account Section</Button>
-                        <Button variant={"solid"}>
+                        <Button variant={"outline"}>
                             <Link href="/Login">
                                 <button className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
-                                rounded-md text-sm font-medium">Don't you have an account?</button>
+                                rounded-md text-sm font-medium">You do not have an account?</button>
                             </Link>
                         </Button>
                     </section>
