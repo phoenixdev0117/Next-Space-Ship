@@ -2,10 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { CustomDrawer } from "@/components/DrawerCustom";
 import { PaginationCustom } from "@/components/PaginationCustom";
-import { fetchCharacters } from "@/lib/narutoFetching";
+import { fetchCharacters } from "@/lib/actions";
 import { UserSheet } from "@/components/UserSheet";
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react';
+import NewPostDialog from "@/components/newPostDialog";
 
 export default function Home({
     ...props
@@ -33,11 +34,13 @@ export default function Home({
     }, []);
 
 
-    // const searchParams = useSearchParams();
+    const searchParams = useSearchParams();
     let pathname = usePathname();
     pathname = pathname.replace('/', '');
     let pathNumber = 0
     pathNumber = Number(pathname);
+    console.log('searchParams:', searchParams);
+    // const currentPageNumber = Number(searchParams.get('page'));
 
     // for (const character of characters) {
     //   const { name, images } = character;
@@ -51,7 +54,12 @@ export default function Home({
                     <section className="text-center m-1 gap-2 py-10 my-6"
                         style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
 
-                        <Button variant={"outline"}>Page {pathNumber}</Button>
+                        <div className="flex flex-col sm:flex-row justify-center pb-4">
+                            <Button className='py-5 mb-4 sm:my-0 mx-auto sm:mx-10'
+                                variant={"outline"}>
+                                Page {pathNumber}</Button>
+                            <NewPostDialog></NewPostDialog>
+                        </div>
 
                         {characters.length > 0 ? (
                             <>

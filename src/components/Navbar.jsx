@@ -15,8 +15,8 @@ export const Navbar = () => {
 
     const [imageLoaded, setImageLoaded] = useState(false);
 
-    const imageLoader = ({ src, width, quality }) => {
-        return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+    const imageLoadedFunction = (e) => {
+        setImageLoaded(true);
     }
 
     return (
@@ -27,19 +27,27 @@ export const Navbar = () => {
             }}>
             <div className="flex flex-row justify-between px-4 md:px-6 lg:px-8 ">
                 <div className="flex flex-row justify-end w-7/12 items-center ">
+                    <Link href="/">
+                        <span className="flex-shrink-0">
+                            <Image
+                                src="/logo.jpeg"
+                                width={50}
+                                height={50}
+                                alt="Forum Logo"
+                                className={`${imageLoaded ? '' : `hidden`} 
+                                rounded-full self-center border-2 border-cyan-400 border-solid`}
 
-                    <div className="flex-shrink-0">
-                        <Image
-                            src="/logo.jpeg"
-                            width={50}
-                            height={50}
-                            alt="Forum Logo"
-                            className='rounded-full self-center border-2 border-cyan-400 border-solid'
-                            priority
-                            onLoad={(e) => console.log(e.target.naturalWidth)}
+                                priority
+                                onLoad={(e) => imageLoadedFunction(e)}
+                            />
+                            {(imageLoaded === false) ?
+                                (<div className="animate-spin rounded-full h-12 w-12
+                                    border-t-2 border-cyan-500">
+                                </div>) :
+                                (null)}
 
-                        />
-                    </div>
+                        </span>
+                    </Link>
 
 
                     <div className="hidden md:block">

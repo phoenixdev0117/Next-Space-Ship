@@ -24,6 +24,7 @@ interface CustomDrawerProps {
 
 
 export const CustomDrawer = ({ data }) => {
+    // We solve this when the firebase posts are done
     // : React.FC<CustomDrawerProps> 
 
     return (

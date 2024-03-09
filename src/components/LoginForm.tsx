@@ -37,37 +37,39 @@ export function LoginForm() {
     }
 
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <FormField
-                    control={form.control}
-                    name="username"
-                    render={({ field }) => (
-                        <FormItem className="flex flex-col justify-center">
-                            <FormLabel>Username</FormLabel>
-                            <FormControl >
-                                <Input className=" text-center w-8/12 sm:w-80 mx-auto" placeholder="Your username" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                        <FormItem className="flex flex-col justify-center">
-                            <FormLabel>Password</FormLabel>
-                            <FormControl>
-                                <Input className="text-center w-8/12 sm:w-80 mx-auto" type="password" placeholder="Your password" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type="submit">Login</Button>
-            </form>
-        </Form>
+        <>
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                    <FormField
+                        control={form.control}
+                        name="username"
+                        render={({ field }) => (
+                            <FormItem className="flex flex-col justify-center">
+                                <FormLabel>Username</FormLabel>
+                                <FormControl >
+                                    <Input className=" text-center w-8/12 sm:w-80 mx-auto" placeholder="Your username" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                            <FormItem className="flex flex-col justify-center">
+                                <FormLabel>Password</FormLabel>
+                                <FormControl>
+                                    <Input className="text-center w-8/12 sm:w-80 mx-auto" type="password" placeholder="Your password" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <Button type="submit">Login</Button>
+                </form>
+            </Form>
+        </>
     );
 }
 
