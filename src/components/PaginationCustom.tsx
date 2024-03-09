@@ -1,4 +1,4 @@
-
+'use client'
 import {
     Pagination,
     PaginationContent,
@@ -10,36 +10,55 @@ import {
 } from "@/components/ui/pagination"
 import React, { useState } from 'react';
 
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+
+
+
 interface PaginationCustomProps {
     currentPage: number;
     totalPages: number;
-    onPageChange: (page: number) => void;
+    onPageChange?: (page: number) => void;
 }
 
-export const PaginationCustom: React.FC<PaginationCustomProps> = ({ currentPage, totalPages, onPageChange }) => {
+export const PaginationCustom: React.FC<PaginationCustomProps> = ({ currentPage, totalPages }) => {
+
+    // const searchParams = useSearchParams();
+    let pathname = usePathname();
+    pathname = pathname.replace('/', '');
+    let pathNumber = 0
+    pathNumber = Number(pathname);
+    currentPage = pathNumber;
 
     return (
         <Pagination>
             <PaginationContent>
                 <PaginationItem>
-                    <PaginationPrevious href="#" />
+                    <PaginationPrevious href={currentPage - 1 > 0 ? `${currentPage - 1}` : `${1}`} />
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink href="#">1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink href="#" isActive>
-                        2
+                    <PaginationLink href={currentPage > 1 ? `${currentPage - 1}` : `${1}`}>
+                        {currentPage - 1 > 0 ? currentPage - 1 : null}
                     </PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink href="`#">3</PaginationLink>
+                    <PaginationLink href="#" isActive>
+                        {currentPage}
+                    </PaginationLink>
                 </PaginationItem>
+
                 <PaginationItem>
                     <PaginationEllipsis />
                 </PaginationItem>
+
                 <PaginationItem>
-                    <PaginationNext href="#" />
+                    <PaginationLink href={`${totalPages}`}>
+                        {totalPages}
+                    </PaginationLink>
+                </PaginationItem>
+
+                <PaginationItem>
+                    <PaginationNext href={currentPage < totalPages ? `${currentPage + 1}` : `${totalPages}`} />
                 </PaginationItem>
             </PaginationContent>
         </Pagination>

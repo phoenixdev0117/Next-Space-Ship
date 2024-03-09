@@ -4,7 +4,14 @@ import { PaginationCustom } from "@/components/PaginationCustom";
 import { fetchCharacters } from "@/lib/narutoFetching";
 import { UserSheet } from "@/components/UserSheet";
 
-export default async function Home() {
+export default async function Home({
+  searchParams
+}: {
+  searchParams?: {
+    query: string;
+    page: number;
+  }
+}) {
 
 
   const characters = await fetchCharacters();
@@ -12,6 +19,7 @@ export default async function Home() {
   // for (const character of characters) {
   //   const { name, images } = character;
   // }
+  console.log(searchParams)
 
   return (
 
@@ -31,7 +39,7 @@ export default async function Home() {
             <CustomDrawer data={characters[1]} />
             <CustomDrawer data={characters[18]} />
           </section>
-          <PaginationCustom currentPage={1} totalPages={10} onPageChange={() => console.log('1')} />
+          <PaginationCustom currentPage={1} totalPages={10} />
 
         </div>
 
