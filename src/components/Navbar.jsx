@@ -20,13 +20,24 @@ export const Navbar = () => {
     }
 
     return (
-        <nav className="w-full py-2 border-b-2"
+        <nav className="w-full py-2 border-b-2 bg-gradient-to-r from-black via-blue-700/20 to-black"
             style={{
                 backgroundColor: 'var(--backgroundNavbar)',
-                borderBottomColor: 'var(--color-secondary)'
+                // borderBottomColor: 'white'
+                borderBottomImage: 'linear-gradient(to right, black, rgba(0,0,255,1), black)'
             }}>
             <div className="flex flex-row justify-between px-4 md:px-6 lg:px-8 ">
                 <div className="flex flex-row justify-end w-7/12 items-center ">
+
+                    <div className="hidden md:block">
+                        <div className="ml-5 mr-5 flex items-center space-x-4">
+                            <Link href="/Account">
+                                <button className=" font-bold text-gray-300 hover:bg-teal-500/70 border-white/0
+                                hover:text-white border-solid hover:border-white/100 border-2 px-3 py-2 rounded-md text-sm ">Account</button>
+                            </Link>
+                        </div>
+                    </div>
+
                     <Link href="/">
                         <span className="flex-shrink-0">
                             <Image
@@ -34,9 +45,10 @@ export const Navbar = () => {
                                 width={50}
                                 height={50}
                                 alt="Forum Logo"
-                                className={`${imageLoaded ? '' : `hidden`} 
-                                rounded-full self-center border-2 border-cyan-400 border-solid`}
-
+                                className={`${imageLoaded ? '' : `hidden`} hover:border-cyan-300
+                                rounded-full self-center border-2 border-cyan-500/90 border-solid 
+                                hover:animate-pulse active:border-white`}
+                                style={{}}
                                 priority
                                 onLoad={(e) => imageLoadedFunction(e)}
                             />
@@ -51,15 +63,15 @@ export const Navbar = () => {
 
 
                     <div className="hidden md:block">
-                        <div className="ml-10 flex items-center space-x-4">
-                            <Link href="/">
+                        <div className="ml-5 mr-5 flex items-center space-x-4">
+                            {/* <Link href="/">
                                 <button className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
                                 rounded-md text-sm font-medium">Home</button>
-                            </Link>
+                            </Link> */}
 
                             <Link href="/Account">
-                                <button className="text-gray-300 hover:bg-teal-500/70 hover:text-white px-3 py-2 
-                                rounded-md text-sm font-medium">Account</button>
+                                <button className="text-gray-300 hover:bg-teal-500/70 border-white/0
+                                 hover:text-white hover:border-white/100 border-solid border-2 px-3 py-2 font-bold rounded-md text-sm ">Account</button>
                             </Link>
                         </div>
                     </div>
