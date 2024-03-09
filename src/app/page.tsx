@@ -1,10 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { CustomDrawer } from "@/components/DrawerCustom";
 import { PaginationCustom } from "@/components/PaginationCustom";
-import { fetchCharacters } from "@/lib/narutoFetching";
+import { fetchCharacters } from "@/lib/actions";
 import { UserSheet } from "@/components/UserSheet";
+import NewPostDialog from "@/components/newPostDialog";
 
-export default async function Home() {
+export default async function Home({
+  searchParams
+}: {
+  searchParams?: {
+    query: string;
+    page: number;
+  }
+}) {
 
 
   const characters = await fetchCharacters();
@@ -12,6 +20,7 @@ export default async function Home() {
   // for (const character of characters) {
   //   const { name, images } = character;
   // }
+  // console.log(searchParams)
 
   return (
 
@@ -21,8 +30,12 @@ export default async function Home() {
           <section className="text-center m-1 gap-2 py-10 my-6"
             style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
 
-            <Button variant={"outline"}>Space-Ship-Forum Button</Button>
-            <h1>The initial posts are settled here below</h1>
+            <h1 className="pb-4 font-extrabold text-xl">Welcome to SpaceShip Forum!</h1>
+            <div className="flex flex-row justify-center pb-4">
+              <Button className='hidden py-5 sm:flex'
+                variant={"outline"}>Space Ship Forum</Button>
+              <NewPostDialog></NewPostDialog>
+            </div>
 
             <CustomDrawer data={characters[13]} />
             <CustomDrawer data={characters[6]} />
@@ -31,7 +44,7 @@ export default async function Home() {
             <CustomDrawer data={characters[1]} />
             <CustomDrawer data={characters[18]} />
           </section>
-          <PaginationCustom currentPage={1} totalPages={10} onPageChange={() => console.log('1')} />
+          <PaginationCustom currentPage={1} totalPages={10} />
 
         </div>
 

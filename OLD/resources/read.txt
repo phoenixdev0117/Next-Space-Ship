@@ -1,1 +1,0 @@
-La carpeta resources tiene las imagenes, logos, y demas recursos externos al codigo.

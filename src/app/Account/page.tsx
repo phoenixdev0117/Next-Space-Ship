@@ -24,7 +24,7 @@ export default function AccountPage() {
                             </Link>
                         </Button>
                     </section>
-                    <PaginationCustom currentPage={1} totalPages={10} onPageChange={() => console.log('1')} />
+                    <PaginationCustom currentPage={1} totalPages={10} />
 
                 </div>
 
