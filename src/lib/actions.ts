@@ -13,9 +13,10 @@ export async function fetchPostById(id: number) {
 export async function postNewPostFirebase(data: any) {
     //TODO: We need to validate if the user is logged in, only then we can post a new post
     // with his user id and username in it (FirebaseStorage service to push posts, not Storage)..
-    // Important: this funciton has to return a boolean value, true if the post was successful, 
-    // false if not.
+    // Important: this funciton has to return a boolean value, and al the response of posts generadted by firebase.
+
     console.log('trying post:', data)
+
     const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify(data),
@@ -23,7 +24,7 @@ export async function postNewPostFirebase(data: any) {
             'Content-type': 'application/json; charset=UTF-8',
         },
     });
-    return true;
+    return [true, data]; // Here, data is the data for the form, we need to change this to the response of the post in firebase.
 }
 
 export async function postNewImageFirebase(data: any) {
