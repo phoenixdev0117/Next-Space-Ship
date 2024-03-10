@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet"
 import Image from 'next/image';
 import { postNewImageFirebase } from '@/lib/actions';
+import { revalidatePath } from 'next/cache';
 
 
 interface CustomSheetProps {
@@ -39,6 +40,8 @@ export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {
             postNewImageFirebase(file);
         }
     };
+
+    // revalidatePath('/'); // To revalidate the current path without the previous cache
 
     return (
         <div className="flex flex-col justify-center items-center">
