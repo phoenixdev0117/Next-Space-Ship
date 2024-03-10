@@ -27,7 +27,7 @@ import { Link } from "lucide-react"
 import { toast } from "@/components/ui/use-toast"
 import { redirect, useParams, useRouter } from "next/navigation"
 import { useState } from "react"
-import { CheckboxWithText } from "@/components/checkBoxSimple"
+import { CheckboxWithText } from "@/components/CheckBoxSimple"
 
 const FormSchema = z.object({
     title: z.string().min(1, {

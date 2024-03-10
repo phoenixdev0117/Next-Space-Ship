@@ -13,7 +13,8 @@ import {
 import Image from 'next/image';
 import { postNewImageFirebase } from '@/lib/actions';
 import { revalidatePath } from 'next/cache';
-
+import { TypingText } from '@/components/TypingText';
+import { ExpandingImage } from '@/components/ExpandingImage';
 
 interface CustomSheetProps {
     data: object;
@@ -41,7 +42,7 @@ export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {
         }
     };
 
-    // revalidatePath('/'); // To revalidate the current path without the previous cache
+    // revalidatePath('/'); // To revalidate the current path without the previous CACHE
 
     return (
         <div className="flex flex-col justify-center items-center">
@@ -55,24 +56,26 @@ export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {
                     <SheetHeader>
                         <span onClick={handleImageSelect}
                             className='mx-auto cursor-pointer'>
-                            {avatar !== '' ? (
-                                <Image
-                                    src={avatar || "/logo.jpeg"}
-                                    alt="User Avatar"
-                                    width={100} height={100}
-                                    className="object-cover rounded-md self-center border-2
-                                     border-white/70
-                                     border-solid hover:border-white" />)
-                                : <Image
-                                    src="/logo.jpeg"
-                                    alt="User Avatar Default"
-                                    width={100}
-                                    height={100}
-                                    className="rounded-md self-center border-2 
-                                    border-white/70 border-solid hover:border-white"
-                                />}
+                            <div className='h-28'>
+                                {avatar !== '' ? (
+                                    <ExpandingImage
+                                        src={avatar}
+                                        alt='User Profile Picture'
+                                        width={120} height={100} expandSpeed={20}>
+                                    </ExpandingImage>)
+                                    :
+                                    <ExpandingImage
+                                        src='/logo.jpeg' alt='Default profile picture'
+                                        width={120} height={100} expandSpeed={20}>
+                                    </ExpandingImage>
+                                }
+                            </div>
                         </span>
-                        <SheetTitle className='self-center pb-6'>USERNAME - Settings</SheetTitle>
+                        <SheetTitle className='self-center pb-6'>
+                            <TypingText text='@AESMatias'
+                                typingSpeed={100}>
+                            </TypingText>
+                        </SheetTitle>
                         <SheetDescription className='self-center'>
                             Here you can change your user settings,
                             profile avatar, and more!

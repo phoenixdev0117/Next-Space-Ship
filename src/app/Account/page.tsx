@@ -12,8 +12,8 @@ export default function AccountPage() {
 
             <div className="flex flex-col sm:flex-row justify-center items-center w-full">
                 <div className="flex flex-col w-8/12 pb-10">
-                    <section className="flex flex-col text-center m-1 gap-2 py-10 my-6"
-                        style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
+                    <section className="flex flex-col text-center m-1 gap-2 py-10 my-6
+                    bg-color-body-general border-2 border-solid border-white/50">
 
                         <Button variant={"outline"}>Space-Ship-Forum - My Account Section</Button>
                         <Button variant={"outline"}>
@@ -23,7 +23,6 @@ export default function AccountPage() {
                             </Link>
                         </Button>
                     </section>
-                    <PaginationCustom currentPage={1} totalPages={10} />
                 </div>
             </div>
 
