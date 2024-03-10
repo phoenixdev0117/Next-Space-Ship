@@ -33,12 +33,15 @@ export function NewPostDialog() {
             {
                 <AlertDialog>
                     <AlertDialogTrigger>
+
                         <span
                             tabIndex={0}
                             className="bg-green-600 px-4 ml-10 py-2 font-bold rounded-lg mx-10 
                         border-solid border-white/0 hover:bg-green-600 hover:border-cyan-100 border-2 cursor-pointer">
+
                             + NewPost
                         </span>
+
                     </AlertDialogTrigger>
 
                     {(submitted === false) ? (<AlertDialogContent>

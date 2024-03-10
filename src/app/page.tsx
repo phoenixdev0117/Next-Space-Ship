@@ -31,6 +31,7 @@ export default async function Home({
             style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
 
             <h1 className="pb-4 font-extrabold text-xl">Welcome to SpaceShip Forum!</h1>
+
             <div className="flex flex-row justify-center pb-4">
               <Button className='hidden py-5 sm:flex'
                 variant={"outline"}>Space Ship Forum</Button>

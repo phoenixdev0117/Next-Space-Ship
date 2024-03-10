@@ -25,7 +25,9 @@ export const CustomFooter = () => {
                             alt="Forum Logo"
                             className='rounded-full border-2 border-white/50 border-solid'
                         />
+
                     </div>
+
 
                 </div>
 

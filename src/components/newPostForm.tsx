@@ -140,8 +140,8 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                                 <FormLabel>Content</FormLabel>
                                 <FormControl>
                                     <textarea
-                                        className="text-center 
-                                    w-full mx-auto resize-none border
+                                        className="text-center resize-y
+                                    w-full mx-auto border max-h-80
                                      border-gray-300 bg-black
                                      rounded-md p-2 min-h-40"
                                         placeholder="Write your post content here"
