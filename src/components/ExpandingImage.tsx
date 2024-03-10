@@ -40,7 +40,8 @@ export function ExpandingImage({ src, alt, width, height, expandSpeed }) {
                     alt="User Avatar Default"
                     width={currentSize}
                     height={currentSize}
-                    className="rounded-md self-center border-2 border-white/70 border-solid hover:border-white"
+                    className="rounded-md self-center border-2 border-white/70
+                     border-solid hover:border-white object-cover h-32 w-32"
                 />
             )}
         </div>

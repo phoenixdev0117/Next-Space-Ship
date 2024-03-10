@@ -4,6 +4,7 @@ import { PaginationCustom } from "@/components/PaginationCustom";
 import { fetchCharacters } from "@/lib/actions";
 import { UserSheet } from "@/components/UserSheet";
 import NewPostDialog from "@/components/newPostDialog";
+// import { UsernameProfilePicture } from "@/components/UsernameProfilePicture";
 
 export default async function Home({
   searchParams
@@ -56,6 +57,11 @@ export default async function Home({
           <section className="bg-blue-600/40 h-auto py-6 rounded-lg">
             <p>Section log-like:
               NEW_USER_01 has commented on POST_NAME...</p>
+            <p>
+              {/* <UsernameProfilePicture>
+
+              </UsernameProfilePicture> */}
+            </p>
           </section>
         </div>
 

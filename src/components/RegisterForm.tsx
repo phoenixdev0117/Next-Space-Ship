@@ -14,6 +14,9 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/firebaseConfig";
+import { updateUserInfo } from "@/lib/updateUserInfo";
 
 
 const formSchema = z.object({
@@ -38,8 +41,38 @@ export function RegisterForm() {
         },
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+
+    // const immediatelyChangeDisplayName = async (user, newDisplayName) => {
+    //     try {
+    //         updateProfile(user, {
+    //             displayName: newDisplayName,
+    //             photoURL: "https://pbs.twimg.com/media/GBGaycGXMAAV-2-?format=jpg&name=large", // Default profile picture
+    //         }).then(() => {
+    //             console.log('displayName has been changed')
+    //             return user;
+    //         }).catch((error) => {
+    //             console.log('Error at immediatelyChangeDisplayName/updateProfile:', error);
+    //             return null
+    //         });
+    //     } catch (error) {
+    //         console.log('Error at immediatelyChangeDisplayName:', error);
+    //         return null
+    //     }
+    // }
+
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
         console.log(values)
+        const nicknameToSet = `${values.username}`;
+        try {
+            const res = await createUserWithEmailAndPassword(values.email, values.password)
+            // We need to change the displayName immediately after the user account is created, otherwise
+            // we need to cancel the entire account creation,we don't want users without their @Username.
+            await updateUserInfo(res?.user, nicknameToSet);
+
+        } catch (error) {
+            console.log('Error at register', error)
+        }
     }
 
     return (
