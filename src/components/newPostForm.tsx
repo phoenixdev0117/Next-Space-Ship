@@ -25,6 +25,9 @@ import { postNewPostFirebase } from "@/lib/actions"
 // import { SelectCategory } from "@/components/newPostSelect"
 import { Link } from "lucide-react"
 import { toast } from "@/components/ui/use-toast"
+import { redirect, useParams, useRouter } from "next/navigation"
+import { useState } from "react"
+import { CheckboxWithText } from "@/components/checkBoxSimple"
 
 const FormSchema = z.object({
     title: z.string().min(1, {
@@ -36,11 +39,13 @@ const FormSchema = z.object({
     category: z.string().refine((value) => value !== "", {
         message: "Select a category.",
         // path: ["category"],
-    })
+    }),
+    userWantsToSeeThePost: z.boolean().optional()
 
 });
 
 export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
+
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -50,13 +55,29 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
         },
     });
 
+    const router = useRouter();
+    const [userWantsToSeeThePost, setUserWantsToSeeThePost] = useState(true);
+
+    const navigateToPosById = (data: string) => {
+
+        let titleOfPost = data.title;
+        titleOfPost = titleOfPost.trim();
+        titleOfPost = titleOfPost.replace(/\s+/g, '-'); // Replaces all spaces with hyphens.
+        router.push(`/username/post/${titleOfPost}`);
+    }
+
     async function onSubmit(values: z.infer<typeof FormSchema>) {
-        const hasBeenPosted = await postNewPostFirebase(values);
-        console.log('hasBeenPosted:', hasBeenPosted, 'data222', values)
-        setSubmitted(true) // We close the modal
-        if (hasBeenPosted === true) {
-            console.log('toassssssssssss')
+
+        const [hasBeenPosted, data] = await postNewPostFirebase(values);
+
+
+        setSubmitted(true)
+        if (hasBeenPosted) {
             setHasBeenSuccessful(true)
+            if (userWantsToSeeThePost) {
+                navigateToPosById(data);
+            }
+
             toast({
                 title: "Your post has been posted:",
                 description: (
@@ -158,8 +179,20 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                                     </Link>
                                 </FormDescription>
                             </FormItem>
-                        )}
-                    />
+                        )} />
+                    <FormField
+                        control={form.control}
+                        name="userWantsToSeeThePost"
+                        defaultValue={userWantsToSeeThePost}
+                        render={({ field }) => (
+                            <FormItem>
+                                <CheckboxWithText isChecked={userWantsToSeeThePost} setIsChecked={setUserWantsToSeeThePost}>
+
+                                </CheckboxWithText>
+                            </FormItem>
+                        )}>
+
+                    </FormField>
                     <Button type="submit">Submit</Button>
                 </form>
             </Form>

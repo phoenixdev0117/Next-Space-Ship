@@ -124,7 +124,7 @@ export const Navbar = () => {
                         className='transition-all animate-pulse'
                         placeholder="Search for content..." />
 
-                    <Link href={`/search/${inputSearch}`}>
+                    <Link href={`/search/${(inputSearch !== '' ? inputSearch : 'blank')}`}>
                         <Button type="submit"
                             // className='transition-all animate-pulse'
                             onClick={() => setIsSearchOpen(!isSearchOpen)}>Search

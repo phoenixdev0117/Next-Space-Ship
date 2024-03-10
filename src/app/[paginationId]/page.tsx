@@ -39,7 +39,7 @@ export default function Home({
     pathname = pathname.replace('/', '');
     let pathNumber = 0
     pathNumber = Number(pathname);
-    console.log('searchParams:', searchParams);
+
     // const currentPageNumber = Number(searchParams.get('page'));
 
     // for (const character of characters) {
@@ -55,11 +55,16 @@ export default function Home({
                         style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
 
                         <div className="flex flex-col sm:flex-row justify-center pb-4">
-                            <Button className='py-5 mb-4 sm:my-0 mx-auto sm:mx-10'
+                            {/* <Button className='py-5 mb-4 sm:my-0 mx-auto sm:mx-10'
                                 variant={"outline"}>
-                                Page {pathNumber}</Button>
+                                Page {pathNumber}</Button> */}
                             <NewPostDialog></NewPostDialog>
                         </div>
+                        {pathNumber > 1 ? (
+                            <div className='hidden sm:flex bg-cyan-800/20 py-1 mt-6'>
+                                <PaginationCustom currentPage={pathNumber} totalPages={10} />
+                            </div>
+                        ) : null}
 
                         {characters.length > 0 ? (
                             <>
@@ -79,7 +84,7 @@ export default function Home({
                                 </div>
                             )}
                     </section>
-                    <PaginationCustom currentPage={1} totalPages={10} />
+                    <PaginationCustom currentPage={pathNumber} totalPages={10} />
 
                 </div>
 

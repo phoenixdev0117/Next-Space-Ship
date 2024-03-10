@@ -4,6 +4,8 @@ import { PaginationCustom } from "@/components/PaginationCustom";
 import Link from 'next/link';
 
 export default function AccountPage() {
+
+
     return (
 
         <main className="justify-center items-center">
@@ -22,11 +24,8 @@ export default function AccountPage() {
                         </Button>
                     </section>
                     <PaginationCustom currentPage={1} totalPages={10} />
-
                 </div>
-
             </div>
-
 
         </main >
 
