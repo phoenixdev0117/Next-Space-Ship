@@ -6,8 +6,12 @@ import Image from 'next/image';
 import { ModeToggle } from "@/components/dark-toggle";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { useRouter } from 'next/navigation';
 
 export const Navbar = () => {
+
+    const router = useRouter();
+
     const [isOpen, setIsOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(true);
     const [inputSearch, setInputSearch] = useState('');
@@ -27,6 +31,17 @@ export const Navbar = () => {
         setInputSearch(value);
     }
 
+    const handleKeyDownInput = (e) => {
+        if (e.key === 'Enter') {
+            setIsSearchOpen(!isSearchOpen);
+            router.push(`/search/${(inputSearch !== '' ? inputSearch : 'blank')}`);
+            setInputSearch('');
+        }
+        else if (e.key === 'Escape') {
+            setIsSearchOpen(!isSearchOpen);
+            setInputSearch('');
+        }
+    }
 
     return (
         <>
@@ -42,7 +57,7 @@ export const Navbar = () => {
                         <div className="hidden md:block">
                             <div className="ml-5 mr-5 flex items-center space-x-4">
                                 <Link href="/">
-                                    <button className=" font-bold text-gray-300 hover:bg-teal-500/70 border-white/0
+                                    <button className=" font-bold text-gray-300 hover:bg-blue-700/60 border-white/0
                                 hover:text-white border-solid hover:border-white/100 border-2 px-3 py-2 rounded-md text-sm ">Home</button>
                                 </Link>
                             </div>
@@ -80,8 +95,9 @@ export const Navbar = () => {
 
 
                                 <Link href="/Account">
-                                    <button className="text-gray-300 hover:bg-teal-500/70 border-white/0
-                                 hover:text-white hover:border-white/100 border-solid border-2 px-3 py-2 font-bold rounded-md text-sm ">Account</button>
+                                    <button className="text-gray-300 bg-blue-700/0 border-white/0 hover:bg-blue-700/60
+                                 hover:text-white hover:border-white/100 border-solid border-2 px-3 py-2 font-bold
+                                  rounded-md text-sm ">Account</button>
                                 </Link>
                             </div>
                         </div>
@@ -100,12 +116,14 @@ export const Navbar = () => {
                         {isOpen && (
                             <>
                                 <Link href="/">
-                                    <button className="w-full block text-gray-300 hover:bg-teal-500/70
+                                    <button
+                                        className="w-full block text-gray-300 hover:bg-teal-500/70
                                  hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</button>
                                 </Link>
-                                <Link href="/Account">
+                                <Link href="/Account" >
                                     <button className="w-full block text-gray-300 hover:bg-teal-500/70
-                                 hover:text-white px-3 py-2 rounded-md text-base font-medium">Account</button>
+                                 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                                    >Account</button>
                                 </Link>
                             </>
                         )}
@@ -122,7 +140,10 @@ export const Navbar = () => {
                     <Input type="search"
                         onChange={(e) => handleInputSarch(e.target.value)}
                         className='transition-all animate-pulse'
-                        placeholder="Search for content..." />
+                        placeholder="Search for content..."
+                        onKeyDown={(e) => handleKeyDownInput(e)}
+                    />
+
 
                     <Link href={`/search/${(inputSearch !== '' ? inputSearch : 'blank')}`}>
                         <Button type="submit"

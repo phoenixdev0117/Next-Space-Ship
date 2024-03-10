@@ -13,6 +13,9 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/firebaseConfig";
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -32,8 +35,26 @@ export function LoginForm() {
         },
     });
 
+    const router = useRouter();
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+    const handleSignIn = async (values: z.infer<typeof formSchema>) => {
+        try {
+            const res = await signInWithEmailAndPassword(values.username, values.password);
+            if (res?.user) {
+                console.log("User signed in successfully", res.user);
+                localStorage.setItem('_firebaseUserEntityWithPhotoAndUsername', JSON.stringify(res.user));
+                router.push('/');
+            }
+        } catch (error) {
+            console.error("Error signing in:", error);
+            localStorage.removeItem('_firebaseUserEntityWithPhotoAndUsername');
+        }
+    }
+
     function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
+        // console.log(values);
+        handleSignIn(values);
     }
 
     return (

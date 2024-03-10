@@ -4,6 +4,7 @@ import { PaginationCustom } from "@/components/PaginationCustom";
 import { fetchCharacters } from "@/lib/actions";
 import { UserSheet } from "@/components/UserSheet";
 import NewPostDialog from "@/components/newPostDialog";
+// import { UsernameProfilePicture } from "@/components/UsernameProfilePicture";
 
 export default async function Home({
   searchParams
@@ -27,8 +28,7 @@ export default async function Home({
     <main>
       <div className="flex flex-col md:flex-row justify-center items-center w-full">
         <div className="flex flex-col w-8/12 pb-10">
-          <section className="text-center m-1 gap-2 py-10 my-6"
-            style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
+          <section className="text-center m-1 gap-2 py-10 my-6 bg-colorBodyGeneral">
 
             <h1 className="pb-4 font-extrabold text-xl">Welcome to SpaceShip Forum!</h1>
 
@@ -57,6 +57,11 @@ export default async function Home({
           <section className="bg-blue-600/40 h-auto py-6 rounded-lg">
             <p>Section log-like:
               NEW_USER_01 has commented on POST_NAME...</p>
+            <p>
+              {/* <UsernameProfilePicture>
+
+              </UsernameProfilePicture> */}
+            </p>
           </section>
         </div>
 

@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body className={inter.className} style={{ backgroundColor: 'var(--background)' }}>
         <ThemeProvider
           attribute="class"

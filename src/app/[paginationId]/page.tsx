@@ -51,9 +51,7 @@ export default function Home({
         <main>
             <div className="flex flex-col md:flex-row justify-center items-center w-full">
                 <div className="flex flex-col w-8/12 pb-10">
-                    <section className="text-center m-1 gap-2 py-10 my-6"
-                        style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
-
+                    <section className="text-center m-1 gap-2 py-10 my-6 bg-colorBodyGeneral">
                         <div className="flex flex-col sm:flex-row justify-center pb-4">
                             {/* <Button className='py-5 mb-4 sm:my-0 mx-auto sm:mx-10'
                                 variant={"outline"}>

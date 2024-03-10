@@ -8,16 +8,17 @@ import { useState } from "react";
 export function CheckboxWithText({ isChecked, setIsChecked }) {
 
 
-    const handleCheckboxChange = (e) => {
-        console.log('Redirigiendo a la página de publicación', isChecked);
+    const handleCheckboxChange = () => {
+        console.log('Redirect option', !isChecked)
         setIsChecked(!isChecked);
+        ;
     };
 
 
     return (
         <div className="items-top flex space-x-2">
             <Checkbox
-                onClick={(e) => handleCheckboxChange(e)}
+                onClick={() => handleCheckboxChange()}
                 checked={isChecked}
                 id="terms1" />
             <div className="grid gap-1.5 leading-none">

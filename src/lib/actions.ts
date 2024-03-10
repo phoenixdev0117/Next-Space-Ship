@@ -30,6 +30,7 @@ export async function postNewPostFirebase(data: any) {
 export async function postNewImageFirebase(data: any) {
     //TODO: We need to validate if the user is logged in, only then we can post a new image
     // in the database (Storage service to push images, not FirebaseStorage).
+    // And return the URL of the image in the storage.
     console.log('trying post a new image:', data)
     const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
@@ -38,7 +39,7 @@ export async function postNewImageFirebase(data: any) {
             'Content-type': 'application/json; charset=UTF-8',
         },
     });
-    return res.json();
+    return res.json(); // URL must be returned here.
 }
 
 // Delete this fetch here below when we have the firebase functionality,
