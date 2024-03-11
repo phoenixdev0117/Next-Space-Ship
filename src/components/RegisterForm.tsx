@@ -43,23 +43,6 @@ export function RegisterForm() {
 
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
-    // const immediatelyChangeDisplayName = async (user, newDisplayName) => {
-    //     try {
-    //         updateProfile(user, {
-    //             displayName: newDisplayName,
-    //             photoURL: "https://pbs.twimg.com/media/GBGaycGXMAAV-2-?format=jpg&name=large", // Default profile picture
-    //         }).then(() => {
-    //             console.log('displayName has been changed')
-    //             return user;
-    //         }).catch((error) => {
-    //             console.log('Error at immediatelyChangeDisplayName/updateProfile:', error);
-    //             return null
-    //         });
-    //     } catch (error) {
-    //         console.log('Error at immediatelyChangeDisplayName:', error);
-    //         return null
-    //     }
-    // }
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         console.log(values)

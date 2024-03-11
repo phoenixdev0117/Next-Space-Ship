@@ -6,6 +6,10 @@ import { UserSheet } from "@/components/UserSheet";
 import NewPostDialog from "@/components/newPostDialog";
 // import { UsernameProfilePicture } from "@/components/UsernameProfilePicture";
 
+
+// const isAuthenticated = userAuth.isAuthenticated;
+
+
 export default async function Home({
   searchParams
 }: {
@@ -18,16 +22,16 @@ export default async function Home({
 
   const characters = await fetchCharacters();
 
-  // for (const character of characters) {
-  //   const { name, images } = character;
-  // }
-  // console.log(searchParams)
-
   return (
-
     <main>
       <div className="flex flex-col md:flex-row justify-center items-center w-full">
         <div className="flex flex-col w-8/12 pb-10">
+
+          <section className="h-auto py-2 sm:hidden">
+            <UserSheet data={characters[0]}>
+            </UserSheet>
+          </section>
+
           <section className="text-center m-1 gap-2 py-10 my-6 bg-colorBodyGeneral">
 
             <h1 className="pb-4 font-extrabold text-xl">Welcome to SpaceShip Forum!</h1>
@@ -49,7 +53,7 @@ export default async function Home({
 
         </div>
 
-        <div className="flex flex-row md:flex-col w-3/12 mt-6 h-screen self-start">
+        <div className="flex-row md:flex-col w-3/12 mt-6 h-screen self-start hidden sm:flex">
           <section className="h-auto py-2">
             <UserSheet data={characters[0]}>
             </UserSheet>
@@ -58,9 +62,6 @@ export default async function Home({
             <p>Section log-like:
               NEW_USER_01 has commented on POST_NAME...</p>
             <p>
-              {/* <UsernameProfilePicture>
-
-              </UsernameProfilePicture> */}
             </p>
           </section>
         </div>

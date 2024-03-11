@@ -40,7 +40,9 @@ export function LoginForm() {
 
     const handleSignIn = async (values: z.infer<typeof formSchema>) => {
         try {
+            console.log(values.username, values.password)
             const res = await signInWithEmailAndPassword(values.username, values.password);
+
             if (res?.user) {
                 console.log("User signed in successfully", res.user);
                 localStorage.setItem('_firebaseUserEntityWithPhotoAndUsername', JSON.stringify(res.user));
@@ -48,7 +50,7 @@ export function LoginForm() {
             }
         } catch (error) {
             console.error("Error signing in:", error);
-            localStorage.removeItem('_firebaseUserEntityWithPhotoAndUsername');
+            // localStorage.removeItem('_firebaseUserEntityWithPhotoAndUsername');
         }
     }
 

@@ -14,12 +14,12 @@ export const updateUserInfo = async (
     try {
         await updateProfile(user, {
             displayName: newDisplayName,
-            photoURL: newProfileURL || 'https://pbs.twimg.com/media/GHm9vrhWEAARdZx?format=png&name=900x900'
+            photoURL: newProfileURL || 'https://pbs.twimg.com/profile_images/1737295128379748352/dmNoLspF_400x400.jpg'
         });
         console.log('displayName has been changed');
         return user;
     } catch (error) {
-        console.log('Error at immediatelyChangeDisplayName/updateProfile:', error);
+        console.log('Error at immediatelyChangeDisplayName / updateProfile:', error);
         return null;
     }
 };

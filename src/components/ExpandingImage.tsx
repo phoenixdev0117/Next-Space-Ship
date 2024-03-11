@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface ExpandingImageProps {
     src: string;
@@ -9,6 +10,9 @@ interface ExpandingImageProps {
 }
 
 export function ExpandingImage({ src, alt, width, height, expandSpeed }) {
+
+    const isFirefox = typeof InstallTrigger !== 'undefined';
+
     const [currentSize, setCurrentSize] = useState(1);
 
     useEffect(() => {
@@ -25,25 +29,43 @@ export function ExpandingImage({ src, alt, width, height, expandSpeed }) {
                 }, expandSpeed * 1);
             }
         };
-        expandImage();
+        if (isFirefox) {
+            expandImage();
+        }
+        else {
+            setCurrentSize(height || width);
+        }
 
         return () => {
             // Clean the effect when the component unmounts
         };
     }, [currentSize, expandSpeed]); // Añadir las dependencias aquí
 
+
+    // const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
     return (
-        <div style={{ width: currentSize, height: currentSize }}>
-            {(
-                <img
+        <div style={{
+            width: currentSize,
+            height: currentSize
+        }}>
+            {(isFirefox) ? (
+                <Image
                     src={`${src || '/logo.jpeg'}`}
                     alt="User Avatar Default"
                     width={currentSize}
                     height={currentSize}
-                    className="rounded-md self-center border-2 border-white/70
-                     border-solid hover:border-white object-cover h-32 w-32"
+                    className={`rounded-md self-center border-2 border-white/70 mx-auto
+                     border-solid hover:border-white object-cover h-32 w-32`}
                 />
-            )}
+            ) : (<Image
+                src={`${src || '/logo.jpeg'}`}
+                alt="User Avatar Default"
+                width={currentSize}
+                height={currentSize}
+                className={`rounded-md self-center border-2
+                 border-white/70
+                 border-solid hover:border-white object-cover h-32 w-32`}
+            />)}
         </div>
     );
 }
