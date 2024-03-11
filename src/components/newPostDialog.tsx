@@ -23,6 +23,7 @@ import {
 import { RegisterForm } from '@/components/newPostForm'
 import { useState } from "react";
 
+
 export function NewPostDialog() {
 
     const [submitted, setSubmitted] = useState(false);
