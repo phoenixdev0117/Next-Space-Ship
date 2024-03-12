@@ -63,7 +63,7 @@ export const UserSheet: React.FC<CustomSheetProps> = async ({ data }) => {
 
 
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center h-40">
             <Sheet>
                 <SheetTrigger>
 
@@ -84,7 +84,7 @@ export const UserSheet: React.FC<CustomSheetProps> = async ({ data }) => {
                         <span onClick={handleImageSelect}
                             className='mx-auto cursor-pointer'>
 
-                            <div className='h-32'>
+                            <div className='h-32 '>
                                 {(userInfo?.photoURL) !== '' ? (
                                     <ExpandingImage
                                         src={userInfo?.photoURL}
@@ -108,7 +108,7 @@ export const UserSheet: React.FC<CustomSheetProps> = async ({ data }) => {
                         </SheetTitle>
                         <SheetDescription className='self-center'>
                             Here you can change your user settings,
-                            profile avatar, and more!
+                            profile avatar, check your stats, and more!
                         </SheetDescription>
                     </SheetHeader>
                 </SheetContent>

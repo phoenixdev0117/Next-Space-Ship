@@ -6,6 +6,7 @@ import { getUsernameInfo } from '@/lib/getUsernameInfo';
 import { logOutFromAccount } from '@/lib/logOutFromAccount';
 import { useRouter } from "next/navigation";
 import { getImageAverageColor } from '@/lib/getImageAverageColor';
+import { UserSheet } from '@/components/UserSheet';
 
 export default function AccountPage() {
 
@@ -87,21 +88,27 @@ export default function AccountPage() {
 
                                 <div className='h-32 w-32 flex flex-col justify-center mx-auto'>
                                     {(userInfo?.photoURL) !== '' ? (
-                                        <Image
-                                            className="border-2 border-solid "
-                                            style={{
-                                                borderColor: `${(photoAvgColor) !== '' ?
-                                                    (`rgba(${255 - photoAvgColor[0] * 0.5},
-                                                        ${255 - photoAvgColor[1] * 0.5},
-                                                        ${255 - photoAvgColor[2] * 0.4},
-                                                        1)`)
-                                                    : ''}`
 
-                                            }}
-                                            src={userInfo?.photoURL}
-                                            alt='User Profile Picture'
-                                            width={120} height={120}>
-                                        </Image>)
+
+                                        <UserSheet>
+                                        </UserSheet>
+                                        // <Image
+                                        //     className="border-2 border-solid "
+                                        //     style={{
+                                        //         borderColor: `${(photoAvgColor) !== '' ?
+                                        //             (`rgba(${255 - photoAvgColor[0] * 0.5},
+                                        //                 ${255 - photoAvgColor[1] * 0.5},
+                                        //                 ${255 - photoAvgColor[2] * 0.4},
+                                        //                 1)`)
+                                        //             : ''}`
+
+                                        //     }}
+                                        //     src={userInfo?.photoURL}
+                                        //     alt='User Profile Picture'
+                                        //     width={120} height={120}>
+                                        // </Image>
+                                    )
+
                                         :
                                         <Image
                                             className="border-2 border-solid border-white"

@@ -20,7 +20,8 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className} style={{ backgroundColor: 'var(--background)' }}>
+      <body className={`${inter.className} bg-gradient-to-b from-background via-blue-950/30 to-black`}
+        style={{ backgroundColor: 'var(--background)' }}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
