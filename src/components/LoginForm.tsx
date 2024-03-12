@@ -18,7 +18,7 @@ import { auth } from "@/app/firebase/firebaseConfig";
 import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
-    username: z.string().min(2, {
+    email: z.string().min(2, {
         message: "Username must be at least 2 characters.",
     }),
     password: z.string().min(7, {
@@ -30,7 +30,7 @@ export function LoginForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: "",
+            email: "",
             password: "",
         },
     });
@@ -40,12 +40,16 @@ export function LoginForm() {
 
     const handleSignIn = async (values: z.infer<typeof formSchema>) => {
         try {
-            console.log(values.username, values.password)
-            const res = await signInWithEmailAndPassword(values.username, values.password);
+            console.log(values.email, values.password)
+            const res = await signInWithEmailAndPassword(values.email, values.password);
+            const userData = res?.user;
 
             if (res?.user) {
-                console.log("User signed in successfully", res.user);
-                localStorage.setItem('_firebaseUserEntityWithPhotoAndUsername', JSON.stringify(res.user));
+                console.log("User signed in successfully", res);
+                const serializedUser = JSON.stringify(userData);
+                localStorage.setItem('_firebaseUserEntityWithPhotoAndUsername', serializedUser);
+
+
                 router.push('/');
             }
         } catch (error) {
@@ -65,10 +69,10 @@ export function LoginForm() {
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                     <FormField
                         control={form.control}
-                        name="username"
+                        name="email"
                         render={({ field }) => (
                             <FormItem className="flex flex-col justify-center">
-                                <FormLabel>Username</FormLabel>
+                                <FormLabel>Email</FormLabel>
                                 <FormControl >
                                     <Input className=" text-center w-8/12 sm:w-80 mx-auto" placeholder="Your username" {...field} />
                                 </FormControl>

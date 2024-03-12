@@ -68,14 +68,15 @@ export default function AccountPage() {
 
             <div className="flex flex-col sm:flex-row justify-center items-center w-full">
                 <div className="flex flex-col w-7/12 md:w-4/12  pb-10">
-                    <section className={`flex flex-col text-center m-1 gap-2 py-6 my-6
+                    <section className={`bg-gradient-to-tr bg-from-blue-600 bg-to-black 
+                    flex flex-col text-center m-1 gap-2 py-6 my-6
                     bg-color-body-general border-2 border-solid border-white/50 rounded-xl
                     ${(photoAvgColor) !== '' ? `border-${photoAvgColor}-400` : ''}
                     `}
                         style={{
-                            backgroundColor: `${(photoAvgColor) !== '' ?
-                                (`rgba(${photoAvgColor[0]},${photoAvgColor[1]},${photoAvgColor[2]},0.8)`)
-                                : ''}`,
+                            // backgroundColor: `${(photoAvgColor) !== '' ?
+                            //     (`rgba(${photoAvgColor[0]},${photoAvgColor[1]},${photoAvgColor[2]},0.8)`)
+                            //     : ''}`,
                             borderColor: `${(photoAvgColor) !== '' ?
                                 (`rgba(${photoAvgColor[0]},${photoAvgColor[1]},${photoAvgColor[2]},1)`)
                                 : ''}`

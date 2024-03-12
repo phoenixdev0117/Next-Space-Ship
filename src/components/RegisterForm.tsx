@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input"
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/firebaseConfig";
 import { updateUserInfo } from "@/lib/updateUserInfo";
+// import { usePathname } from "next/navigation"
 
 
 const formSchema = z.object({
@@ -41,6 +42,8 @@ export function RegisterForm() {
         },
     })
 
+    let pathname = usePathname();
+
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
 
@@ -51,7 +54,7 @@ export function RegisterForm() {
             const res = await createUserWithEmailAndPassword(values.email, values.password)
             // We need to change the displayName immediately after the user account is created, otherwise
             // we need to cancel the entire account creation,we don't want users without their @Username.
-            await updateUserInfo(res?.user, nicknameToSet);
+            await updateUserInfo(res?.user, nicknameToSet, null);
 
         } catch (error) {
             console.log('Error at register', error)

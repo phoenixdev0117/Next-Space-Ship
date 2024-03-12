@@ -27,20 +27,21 @@ export async function postNewPostFirebase(data: any) {
     return [true, data]; // Here, data is the data for the form, we need to change this to the response of the post in firebase.
 }
 
-export async function postNewImageFirebase(data: any) {
-    //TODO: We need to validate if the user is logged in, only then we can post a new image
-    // in the database (Storage service to push images, not FirebaseStorage).
-    // And return the URL of the image in the storage.
-    console.log('trying post a new image:', data)
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    });
-    return res.json(); // URL must be returned here.
-}
+// TODO: THE FUNCTION BELOW HERE IS DEPRECATED, DO NOT USE IT, USE lib/FirebaseUploadAvatar INSTEAD
+// export async function postNewImageFirebase(data: any) {
+//     //TODO: We need to validate if the user is logged in, only then we can post a new image
+//     // in the database (Storage service to push images, not FirebaseStorage).
+//     // And return the URL of the image in the storage.
+//     console.log('trying post a new image:', data)
+//     const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+//         method: 'POST',
+//         body: JSON.stringify(data),
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8',
+//         },
+//     });
+//     return res.json(); // URL must be returned here.
+// }
 
 // Delete this fetch here below when we have the firebase functionality,
 // this is only for testing purposes

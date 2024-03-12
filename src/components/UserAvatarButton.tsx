@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
+
 interface UserAvatarButtonProps {
     user: any;
     onLogout: () => void;
 }
 
 export const UserAvatarButton: React.FC<UserAvatarButtonProps> = ({ photoURL, onLogout }) => {
+
 
 
     const [imageLoaded, setImageLoaded] = useState(false);
