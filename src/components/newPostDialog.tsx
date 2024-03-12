@@ -34,14 +34,17 @@ export function NewPostDialog() {
             {
                 <AlertDialog>
                     <AlertDialogTrigger>
-
-                        <span
+                        <button
                             tabIndex={0}
-                            className="bg-green-600 px-4 ml-10 py-2 font-bold rounded-lg mx-10 
-                        border-solid border-white/0 hover:bg-green-600 hover:border-cyan-100 border-2 cursor-pointer">
-
+                            className="px-4 ml-10 py-2 font-bold rounded-xl mx-10 border-solid border-green-500/80
+                            cursor-pointer  bg-gradient-to-r 
+                            transition duration-300  ease-in-out from-green-800 to-green-400
+                              hover:from-green-700 via-green-500 hover:to-green-300 
+                              hover:bg-green-600 hover:border-cyan-100 hover:shadow-lg hover:scale-110"
+                        >
                             + NewPost
-                        </span>
+                        </button>
+
 
                     </AlertDialogTrigger>
 

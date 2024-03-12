@@ -23,22 +23,23 @@ interface CustomDrawerProps {
 }
 
 
-export const CustomDrawer = ({ data }) => {
+export const CustomDrawer = ({ data, isHome = true }) => {
     // We solve this when the firebase posts are done
     // : React.FC<CustomDrawerProps> 
 
     return (
         <Suspense fallback={
             <div className="flex flex-col justify-center items-center h-screen">
-                <div className="animate-spin rounded-full h-32 w-32 border-t-8 border-b-4 border-cyan-500">
+                <div className="animate-spin rounded-full h-32 w-32 border-t-8 border-b-4 
+                border-cyan-500">
                 </div>
                 <span className="my-10 text-xl">Loading ...</span>
             </div>
         }>
-            <div className="flex flex-col justify-start items-center">
+            <div className={`flex flex-col ${isHome ? 'items-left' : 'items-center'} justify-center`}>
 
                 <Drawer>
-                    <DrawerTrigger className='w-11/12'>
+                    <DrawerTrigger className='w-12/12 md:w-10/12 xl:w-12/12'>
                         <CustomCard data={data} />
                     </DrawerTrigger>
                     <DrawerContent>
@@ -57,8 +58,8 @@ export const CustomDrawer = ({ data }) => {
                             <DrawerDescription className='text-center'>{data.name}</DrawerDescription>
                         </DrawerHeader>
                         <DrawerFooter>
-                            <DrawerClose className="bg-red-800 h-12 text-xl mb-4 border-solid border-2 border-red-400
-                        font-bold w-10/12 md:w-8/12 xl:w-6/12 self-center rounded-lg">
+                            <DrawerClose className="bg-red-800 h-12 text-xl mb-4 border-solid border-2
+                             border-red-600 font-bold w-10/12 md:w-8/12 xl:w-6/12 self-center rounded-lg">
                                 Close
                             </DrawerClose>
                         </DrawerFooter>

@@ -20,10 +20,10 @@ export const CustomCard: React.FC<CustomCardProps> = ({ data }) => {
 
     return (
         <Card className="text-center flex-initial space-y-5 border-white 
-        text-xs
-        font-medium bg-card 
-        transition duration-200 ease-in-out hover:bg-red-50
-          flex-col w-8/10 m-1 py-1 mt-2  border-2 border-solid rounded-2xl">
+        text-xs font-medium transition duration-100 ease-in-out 
+          flex-col w-8/10 m-1 py-1 mt-2  border-2 border-solid rounded-xl
+          hover:bg-from-black hover:bg-via-red-700/50 hover:bg-to-black hover:scale-105
+          ">
 
             <CardHeader>
                 <CardTitle>{data.name}</CardTitle>

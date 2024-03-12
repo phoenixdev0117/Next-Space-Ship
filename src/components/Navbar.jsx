@@ -48,7 +48,6 @@ export const Navbar = () => {
             <nav className="w-full py-2 border-b-2 bg-gradient-to-r from-black via-blue-700/20 to-black"
                 style={{
                     backgroundColor: 'var(--backgroundNavbar)',
-                    // borderBottomColor: 'white'
                     borderBottomImage: 'linear-gradient(to right, black, rgba(0,0,255,1), black)'
                 }}>
                 <div className="flex flex-row justify-between px-4 md:px-6 lg:px-8 ">
@@ -73,7 +72,7 @@ export const Navbar = () => {
                                 className={`${imageLoaded ? '' : `hidden`} hover:border-cyan-300
                                 rounded-full self-center border-2 border-cyan-500/90 border-solid 
                                  active:border-4
-                                
+                                 transition duration-2000 ease-in-out hover:scale-110
                                 ${isSearchOpen ? `animate-none` : `animate-spin`}
                                 `}
                                 style={{}}

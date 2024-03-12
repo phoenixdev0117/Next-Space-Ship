@@ -29,9 +29,12 @@ export const UserAvatarButton: React.FC<UserAvatarButtonProps> = ({ photoURL, on
                     width={80}
                     height={80}
                     className={`${imageLoaded ? '' : `hidden`} 
-                    rounded-full object-cover h-24 w-24
+                    rounded-full object-cover w-24 h-24
                     self-center border-2 border-white/0 border-solid
-                    transition duration-200 ease-in-out hover:border-white`}
+                    transition duration-150 ease-in-out hover:border-white
+                    hover:animate-pulse 
+                    hover:scale-110
+                    `}
                     priority // Does not work without this
                     onLoad={() => imageLoadedFunction()}
                 />
