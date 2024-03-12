@@ -1,3 +1,4 @@
+'use server'
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
@@ -12,7 +13,6 @@ const firebaseConfig = {
     appId: process.env.NEXT_FIREBASE_APP_ID,
 };
 
-console.log('keyyysss', firebaseConfig)
 // Initialize Firebase for server side rendering
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
 
