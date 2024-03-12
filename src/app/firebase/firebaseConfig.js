@@ -1,6 +1,8 @@
+'use server'
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-
+import { getStorage } from "firebase/storage";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_FIREBASE_API_KEY,
@@ -11,10 +13,12 @@ const firebaseConfig = {
     appId: process.env.NEXT_FIREBASE_APP_ID,
 };
 
-console.log('keyyysss', firebaseConfig)
 // Initialize Firebase for server side rendering
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
 
 const auth = getAuth(app)
+const database = getFirestore(app);
+const storage = getStorage();
 
-export { app, auth }
+
+export { app, auth, database, storage }

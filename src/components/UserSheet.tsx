@@ -11,12 +11,11 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import Image from 'next/image';
-import { postNewImageFirebase } from '@/lib/actions';
 import { revalidatePath } from 'next/cache';
 import { TypingText } from '@/components/TypingText';
 import { ExpandingImage } from '@/components/ExpandingImage';
 import { getUsernameInfo } from '@/lib/getUsernameInfo';
-import updateUserInfo from '@/lib/updateUserInfo';
+import { FirebaseUploadAvatar, FirebaseDownloadAvatar } from '@/lib/FirebaseAvatar';
 
 interface CustomSheetProps {
     data: object;
@@ -35,14 +34,12 @@ export const UserSheet: React.FC<CustomSheetProps> = async ({ data }) => {
         }
     };
 
-    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {
-            console.log('Selected image:', file);
             const imageUrl = URL.createObjectURL(file);
             setAvatar(imageUrl);
-            const urlImageFirebase = postNewImageFirebase(file); // First upload the image to Firebase Storage
-            updateUserInfo(userInfo, userInfo?.displayName, urlImageFirebase); // Then update the user info with the new photoURL
+            const urlImageFirebase = await FirebaseUploadAvatar(userInfo, imageUrl); // Upload the image, then return the URL or null
         }
     };
 
@@ -59,7 +56,6 @@ export const UserSheet: React.FC<CustomSheetProps> = async ({ data }) => {
             // cleanup
         };
     }, []);
-
 
 
     return (

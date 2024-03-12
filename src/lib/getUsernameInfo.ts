@@ -5,10 +5,6 @@ import { auth } from "@/app/firebase/firebaseConfig";
 
 
 
-const user = auth.currentUser;
-
-
-
 
 export const getUsernameInfo = async () => {
     let userObject;

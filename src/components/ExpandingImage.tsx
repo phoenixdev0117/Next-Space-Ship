@@ -11,6 +11,9 @@ interface ExpandingImageProps {
 
 export function ExpandingImage({ src, alt, width, height, expandSpeed }) {
 
+
+    //TODO: InstallTrigger is deprecated and will be removed in the future.
+    // You should use the navigator.userAgent or navigator.vendor to detect Firefox. (not tested yet)
     const isFirefox = typeof InstallTrigger !== 'undefined';
 
     const [currentSize, setCurrentSize] = useState(1);
