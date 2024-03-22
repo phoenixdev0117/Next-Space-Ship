@@ -42,7 +42,7 @@ export function RegisterForm() {
         },
     })
 
-    let pathname = usePathname();
+    // let pathname = usePathname();
 
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 

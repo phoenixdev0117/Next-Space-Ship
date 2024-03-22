@@ -50,7 +50,7 @@ export function NewPostDialog() {
 
                     {(submitted === false) ? (<AlertDialogContent>
                         <AlertDialogHeader>
-                            <AlertDialogCancel variant={'none'} className='self-end'>
+                            <AlertDialogCancel className='self-end'>
                                 X
                             </AlertDialogCancel>
 

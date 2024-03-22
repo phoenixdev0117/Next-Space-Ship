@@ -27,7 +27,7 @@ import { Link } from "lucide-react"
 import { toast } from "@/components/ui/use-toast"
 import { redirect, useParams, useRouter } from "next/navigation"
 import { useState } from "react"
-import { CheckboxWithText } from "@/components/CheckBoxSimple"
+import { CheckBoxSimple } from "@/components/CheckBoxSimple"
 
 const FormSchema = z.object({
     title: z.string().min(1, {
@@ -44,6 +44,12 @@ const FormSchema = z.object({
 
 });
 
+interface DataAfterPost {
+    title: string;
+    content: string;
+    category: string;
+}
+
 export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
 
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -58,7 +64,7 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
     const router = useRouter();
     const [userWantsToSeeThePost, setUserWantsToSeeThePost] = useState(true);
 
-    const navigateToPosById = (data: string) => {
+    const navigateToPosById = (data: DataAfterPost) => {
 
         let titleOfPost = data.title;
         titleOfPost = titleOfPost.trim();
