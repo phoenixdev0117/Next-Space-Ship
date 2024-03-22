@@ -192,9 +192,9 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                         defaultValue={userWantsToSeeThePost}
                         render={({ field }) => (
                             <FormItem>
-                                <CheckboxWithText isChecked={userWantsToSeeThePost} setIsChecked={setUserWantsToSeeThePost}>
+                                <CheckBoxSimple isChecked={userWantsToSeeThePost} setIsChecked={setUserWantsToSeeThePost}>
 
-                                </CheckboxWithText>
+                                </CheckBoxSimple>
                             </FormItem>
                         )}>
 
