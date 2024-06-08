@@ -27,7 +27,7 @@ import { Link } from "lucide-react"
 import { toast } from "@/components/ui/use-toast"
 import { redirect, useParams, useRouter } from "next/navigation"
 import { useState } from "react"
-import { CheckboxWithText } from "@/components/CheckBoxSimple"
+import { CheckBoxSimple } from "@/components/CheckBoxSimple"
 
 const FormSchema = z.object({
     title: z.string().min(1, {
@@ -44,6 +44,12 @@ const FormSchema = z.object({
 
 });
 
+interface DataAfterPost {
+    title: string;
+    content: string;
+    category: string;
+}
+
 export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
 
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -58,7 +64,7 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
     const router = useRouter();
     const [userWantsToSeeThePost, setUserWantsToSeeThePost] = useState(true);
 
-    const navigateToPosById = (data: string) => {
+    const navigateToPosById = (data: DataAfterPost) => {
 
         let titleOfPost = data.title;
         titleOfPost = titleOfPost.trim();
@@ -101,7 +107,7 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
     }
 
     return (
-        <section>
+        <section className=''>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-8 flex flex-col text-center w-full">
@@ -138,7 +144,7 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
-                                        <SelectItem value="Default">Default</SelectItem>
+                                        <SelectItem className="bg-slate-950" value="Default">Default</SelectItem>
                                         <SelectItem value="Kant">Kant</SelectItem>
                                         <SelectItem value="Hegel">Hegel</SelectItem>
                                         <SelectItem value="Wittgenstein">Wittgenstein</SelectItem>
@@ -186,9 +192,9 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                         defaultValue={userWantsToSeeThePost}
                         render={({ field }) => (
                             <FormItem>
-                                <CheckboxWithText isChecked={userWantsToSeeThePost} setIsChecked={setUserWantsToSeeThePost}>
+                                <CheckBoxSimple isChecked={userWantsToSeeThePost} setIsChecked={setUserWantsToSeeThePost}>
 
-                                </CheckboxWithText>
+                                </CheckBoxSimple>
                             </FormItem>
                         )}>
 

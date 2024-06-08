@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 
-export function CheckboxWithText({ isChecked, setIsChecked }) {
+export function CheckBoxSimple({ isChecked, setIsChecked }) {
 
 
     const handleCheckboxChange = () => {
@@ -36,4 +36,4 @@ export function CheckboxWithText({ isChecked, setIsChecked }) {
     )
 }
 
-export default CheckboxWithText;
+export default CheckBoxSimple;

@@ -18,13 +18,18 @@ import { getUsernameInfo } from '@/lib/getUsernameInfo';
 import { FirebaseUploadAvatar, FirebaseDownloadAvatar } from '@/lib/FirebaseAvatar';
 
 interface CustomSheetProps {
-    data: object;
+    data?: any;
 }
 
-export const UserSheet: React.FC<CustomSheetProps> = async ({ data }) => {
+export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {
 
     const [avatar, setAvatar] = useState('');
-    const [userInfo, setUserInfo] = useState({});
+    const [userInfo, setUserInfo] = useState({
+        photoURL: '',
+        uid: '',
+        email: '',
+        displayName: ''
+    });
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -48,7 +53,12 @@ export const UserSheet: React.FC<CustomSheetProps> = async ({ data }) => {
     useEffect(() => {
         const fetchUserInfo = async () => {
             const userInfo = await getUsernameInfo();
-            let { photoURL, uid, email, displayName } = userInfo || {}
+            let { photoURL, uid, email, displayName } = userInfo || {
+                photoURL: '',
+                uid: '',
+                email: '',
+                displayName: ''
+            }
             setUserInfo(userInfo);
         };
         fetchUserInfo();

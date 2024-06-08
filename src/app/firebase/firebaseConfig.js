@@ -1,8 +1,11 @@
-'use server'
+'use client'
+// TODO: Everything is working fine since i changed 'use server' to 'use client'
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, initializeAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
+
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_FIREBASE_API_KEY,
@@ -14,11 +17,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase for server side rendering
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
+// const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
+const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app)
+// const auth = getAuth(app);
 const database = getFirestore(app);
-const storage = getStorage();
+const storage = getStorage(app);
+
+const auth = initializeAuth(app);
 
 
 export { app, auth, database, storage }
+
+// const analytics = getAnalytics(app);

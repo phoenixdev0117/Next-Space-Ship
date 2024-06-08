@@ -40,14 +40,77 @@ export const CustomDrawer = ({ data, isHome = true }) => {
 
                 <Drawer>
                     <DrawerTrigger className='w-12/12 md:w-10/12 xl:w-12/12'>
-                        <CustomCard data={data} />
+                        <CustomCard data={data}/>
                     </DrawerTrigger>
-                    <DrawerContent>
-                        <DrawerHeader className='h-96 flex flex-col justify-around'>
+                    <DrawerContent >
+                        <DrawerHeader className='h-screen flex flex-col justify-around
+                         bg-black/60 overflow-y-auto pt-44'>
 
                             <DrawerTitle className='text-center'>{data.name}</DrawerTitle>
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
 
-
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src={data.images[0]}
+                                alt={data.name + ' image'}
+                                className='rounded-3xl self-center'
+                                width={200}
+                                height={200}
+                            />
                             <Image
                                 src={data.images[0]}
                                 alt={data.name + ' image'}
@@ -57,11 +120,14 @@ export const CustomDrawer = ({ data, isHome = true }) => {
                             />
                             <DrawerDescription className='text-center'>{data.name}</DrawerDescription>
                         </DrawerHeader>
-                        <DrawerFooter>
-                            <DrawerClose className="bg-red-800 h-12 text-xl mb-4 border-solid border-2
-                             border-red-600 font-bold w-10/12 md:w-8/12 xl:w-6/12 self-center rounded-lg">
-                                Close
-                            </DrawerClose>
+                        <DrawerFooter className='bg-black/60'>
+                        <DrawerClose className="h-14 text-xl mb-4 border-solid border-2 border-cyan-900/0
+                        border-red-white font-bold w-10/12 md:w-8/12 xl:w-5/12 self-center
+                         rounded-lg bg-gradient-to-r from-blue-700/40 via-cyan-500/70 to-blue-700/40
+                         cursor-pointer hover:brightness-125">
+    Close
+</DrawerClose>
+
                         </DrawerFooter>
                     </DrawerContent>
                 </Drawer >

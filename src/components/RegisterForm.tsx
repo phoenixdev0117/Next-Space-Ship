@@ -15,10 +15,9 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "@/app/firebase/firebaseConfig";
+import { auth, app } from "@/app/firebase/firebaseConfig";
 import { updateUserInfo } from "@/lib/updateUserInfo";
 // import { usePathname } from "next/navigation"
-
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -42,7 +41,7 @@ export function RegisterForm() {
         },
     })
 
-    let pathname = usePathname();
+    // let pathname = usePathname();
 
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 

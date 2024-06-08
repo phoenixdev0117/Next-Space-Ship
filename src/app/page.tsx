@@ -6,7 +6,6 @@ import { UserSheet } from "@/components/UserSheet";
 import NewPostDialog from "@/components/newPostDialog";
 // import { UsernameProfilePicture } from "@/components/UsernameProfilePicture";
 
-
 // const isAuthenticated = userAuth.isAuthenticated;
 
 
@@ -20,6 +19,9 @@ export default async function Home({
 }) {
 
 
+  const isInfoTouched = false;
+
+
   const characters = await fetchCharacters();
 
   return (
@@ -29,17 +31,29 @@ export default async function Home({
 
 
 
-          <section className="text-center m-1 gap-2 py-10 my-6 
-          ">
 
-            <div className="h-32 sm:h-40 flex justify-center items-center -my-12 -mx-4 
-            xl:-mx-4 rounded-2xl bg-cover bg-no-repeat"
+          <section className="text-center m-1 gap-2 py-10 my-6">
+
+            <div className="h-32 sm:h-40 flex justify-center items-center -my-12 -mx-4
+            xl:-mx-4 rounded-2xl bg-cover bg-no-repeat 
+            hover:scale-y-105 hover:scale-x-95 hover:transition-transform duration-200"
               style={{ backgroundImage: "url('https://pbs.twimg.com/media/GISySMobgAAiArK?format=jpg&name=medium')" }}>
 
-              <h1 className="select-none p-4 font-extrabold text-lg sm:text-3xl 
+              <h1 className="select-none p-4 font-extrabold text-lg sm:text-3xl
               transition hover:animate-in ease-in-out hover:scale-110">
                 Welcome to SpaceShip Forum!
               </h1>
+
+              {/* Container of logos, info */}
+            <div className="flex flex-row justify-center mt-0 ml-12
+            select-all p-4 cursor-pointer font-extrabold text-lg sm:text-3xl 
+              transition ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" 
+              className="bi bi-info-circle-fill hover:fill-cyan-200/100" viewBox="0 0 16 16">
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+    </svg>
+            </div>
+
 
             </div>
 
@@ -78,6 +92,7 @@ export default async function Home({
                 <CustomDrawer data={characters[1]} />
                 <CustomDrawer data={characters[18]} />
               </div>
+              
 
             </div>
 
@@ -111,4 +126,3 @@ export default async function Home({
 
   );
 }
-7

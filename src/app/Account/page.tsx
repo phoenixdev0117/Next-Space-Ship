@@ -10,7 +10,12 @@ import { UserSheet } from '@/components/UserSheet';
 
 export default function AccountPage() {
 
-    const [userInfo, setUserInfo] = useState({});
+    const [userInfo, setUserInfo] = useState({
+        photoURL: '',
+        uid: '',
+        email: '',
+        displayName: ''
+    });
     const [photoAvgColor, setPhotoAvgColor] = useState('');
     const router = useRouter();
 
@@ -18,7 +23,12 @@ export default function AccountPage() {
         const res = await logOutFromAccount();
         if (res) {
             router.push('/');
-            setUserInfo({});
+            setUserInfo({
+                photoURL: '',
+                uid: '',
+                email: '',
+                displayName: ''
+            });
         }
         else {
             console.log('Error logging out');
@@ -29,7 +39,12 @@ export default function AccountPage() {
     useEffect(() => {
         const fetchUserInfo = async () => {
             const userInfo = await getUsernameInfo();
-            const { photoURL, uid, email, displayName } = userInfo || {}
+            const { photoURL, uid, email, displayName } = userInfo || {
+                photoURL: '',
+                uid: '',
+                email: '',
+                displayName: ''
+            };
             setUserInfo(userInfo);
         };
         fetchUserInfo();
@@ -50,8 +65,8 @@ export default function AccountPage() {
         }
 
         const getColor = async () => {
-            if (!userInfo?.photoURL) return;
-            const photoAvgColor = await getImageAverageColor(userInfo?.photoURL);
+            if (userInfo?.photoURL === '') return;
+            const photoAvgColor: any = await getImageAverageColor(userInfo?.photoURL); //TODO: Type this
             console.log('Photo average color:', photoAvgColor);
             setPhotoAvgColor(photoAvgColor);
         };
@@ -82,7 +97,7 @@ export default function AccountPage() {
                                 : ''}`
                         }}>
 
-                        {userInfo?.displayName ? (
+                        {(userInfo?.displayName !== '') ? (
                             <div>
                                 <Button variant={"secondary"} className="font-bold text-xl mx-auto my-6"
                                 >Welcome {userInfo?.displayName}</Button>

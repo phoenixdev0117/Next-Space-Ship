@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 
 interface UserAvatarButtonProps {
-    user: any;
+    photoURL: string;
     onLogout: () => void;
 }
 
