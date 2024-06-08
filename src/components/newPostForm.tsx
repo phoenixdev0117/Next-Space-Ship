@@ -107,7 +107,7 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
     }
 
     return (
-        <section>
+        <section className=''>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-8 flex flex-col text-center w-full">
@@ -144,7 +144,7 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
-                                        <SelectItem value="Default">Default</SelectItem>
+                                        <SelectItem className="bg-slate-950" value="Default">Default</SelectItem>
                                         <SelectItem value="Kant">Kant</SelectItem>
                                         <SelectItem value="Hegel">Hegel</SelectItem>
                                         <SelectItem value="Wittgenstein">Wittgenstein</SelectItem>

@@ -13,9 +13,11 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/firebaseConfig";
 import { useRouter } from 'next/navigation';
+import { getAuth } from "firebase/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+
 
 const formSchema = z.object({
     email: z.string().min(2, {
@@ -42,7 +44,16 @@ export function LoginForm() {
         try {
             console.log(values.email, values.password)
             const res = await signInWithEmailAndPassword(values.email, values.password);
+            console.log('res', res)
+            // res.then((res) => {
+            //     console.log('res', res)
+            //     const user = res?.user;
+            //     console.log('user', user);
+            //     console.log('Firebase Auth:', auth);
+            // }
             const userData = res?.user;
+
+            console.log('userdata', res, userData)
 
             if (res?.user) {
                 console.log("User signed in successfully", res);

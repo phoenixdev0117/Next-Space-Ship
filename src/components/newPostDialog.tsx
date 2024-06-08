@@ -33,14 +33,15 @@ export function NewPostDialog() {
         <>
             {
                 <AlertDialog>
-                    <AlertDialogTrigger>
+                    <AlertDialogTrigger >
                         <button
                             tabIndex={0}
-                            className="px-4 ml-10 py-2 font-bold rounded-xl mx-10 border-solid border-green-500/80
-                            cursor-pointer  bg-gradient-to-r 
-                            transition duration-300  ease-in-out from-green-800 to-green-400
+                            className="px-4 ml-10 py-2 font-bold rounded-xl mx-10 border-solid border-green-500/0
+                            cursor-pointer  bg-gradient-to-r border-2
+                            transition duration-75  ease-in-out from-green-800 to-green-400
                               hover:from-green-700 via-green-500 hover:to-green-300 
-                              hover:bg-green-600 hover:border-cyan-100 hover:shadow-lg hover:scale-110"
+                              hover:bg-green-600 hover:border-cyan-100 hover:shadow-lg hover:scale-110
+                              hover:brightness-110"
                         >
                             + NewPost
                         </button>
@@ -49,7 +50,7 @@ export function NewPostDialog() {
                     </AlertDialogTrigger>
 
                     {(submitted === false) ? (<AlertDialogContent>
-                        <AlertDialogHeader>
+                        <AlertDialogHeader className="">
                             <AlertDialogCancel className='self-end'>
                                 X
                             </AlertDialogCancel>
