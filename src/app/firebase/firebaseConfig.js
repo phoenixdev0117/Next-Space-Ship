@@ -7,13 +7,22 @@ import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 
 
+// const firebaseConfig = {
+//     apiKey: process.env.NEXT_FIREBASE_API_KEY,
+//     authDomain: process.env.NEXT_FIREBASE_AUTH_DOMAIN,
+//     projectId: process.env.NEXT_FIREBASE_PROJECT_ID,
+//     storageBucket: process.env.NEXT_FIREBASE_STORAGE_BUCKET,
+//     messagingSenderId: process.env.NEXT_FIREBASE_MESSAGING_SENDER_ID,
+//     appId: process.env.NEXT_FIREBASE_APP_ID,
+// };
 const firebaseConfig = {
-    apiKey: process.env.NEXT_FIREBASE_API_KEY,
-    authDomain: process.env.NEXT_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.NEXT_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.NEXT_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.NEXT_FIREBASE_APP_ID,
+    apiKey: "AIzaSyCKnYjWJAKlxRE7k0NPijFoxGIms3ciD1M",
+    authDomain: "ss-forum-c2bee.firebaseapp.com",
+    projectId: "ss-forum-c2bee",
+    storageBucket: "ss-forum-c2bee.appspot.com",
+    messagingSenderId: "798074046923",
+    appId: "1:798074046923:web:ecb1a782a6b2ea94d24e4e",
+    measurementId: "G-N9LQ52XBSX"
 };
 
 // Initialize Firebase for server side rendering
