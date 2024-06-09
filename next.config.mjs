@@ -22,6 +22,23 @@ const nextConfig = {
             },
         ],
     },
+    async headers() {
+        return [
+            {
+                source: '/',
+                headers: [
+                    {
+                        key: 'Access-Control-Allow-Origin',
+                        value: 'http://localhost:3000',
+                    },
+                                        {
+                        key: 'Access-Control-Allow-Origin',
+                        value: 'https://space-ship-forum.vercel.app/',
+                    },
+                ],
+            },
+        ];
+    },
 };
 
 export default nextConfig;

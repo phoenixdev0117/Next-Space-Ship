@@ -85,7 +85,9 @@ export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {
                     }
 
                 </SheetTrigger>
-                <SheetContent className="w-[320px] sm:w-[400px]">
+
+                <SheetContent side={`bottom`} 
+                className="md:hidden h-full sm:w-full">
                     <SheetHeader>
                         <span onClick={handleImageSelect}
                             className='mx-auto cursor-pointer'>
@@ -109,15 +111,51 @@ export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {
                         </span>
                         <SheetTitle className='self-center pb-6'>
                             <TypingText text={`${userInfo?.displayName || 'Anonymous'}`}
-                                typingSpeed={100}>
+                                typingSpeed={250}>
                             </TypingText>
                         </SheetTitle>
-                        <SheetDescription className='self-center'>
+                        <SheetDescription className='self-center sm:w-96 font-bold'>
+                            To make changes to your profile, or change your avatar,
+                            please go to the Account section in the menu.
+                        </SheetDescription>
+                    </SheetHeader>
+                </SheetContent>
+
+                <SheetContent side={`right`} 
+                className="hidden md:block w-[320px] sm:w-[400px]">
+                    <SheetHeader>
+                        <span onClick={handleImageSelect}
+                            className='mx-auto cursor-pointer'>
+
+                            <div className='h-32 '>
+                                {(userInfo?.photoURL) !== '' ? (
+                                    <ExpandingImage
+                                        src={userInfo?.photoURL}
+                                        alt='User Profile Picture'
+                                        width={120} height={120} expandSpeed={12}>
+                                    </ExpandingImage>)
+                                    :
+                                    <ExpandingImage
+                                        src={userInfo?.photoURL}
+                                        alt='Default profile picture'
+                                        width={120} height={120} expandSpeed={12}>
+                                    </ExpandingImage>
+                                }
+                            </div>
+
+                        </span>
+                        <SheetTitle className='self-center pb-6'>
+                            <TypingText text={`${userInfo?.displayName || 'Anonymous'}`}
+                                typingSpeed={250}>
+                            </TypingText>
+                        </SheetTitle>
+                        <SheetDescription className='self-center font-semibold'>
                             Here you can change your user settings,
                             profile avatar, check your stats, and more!
                         </SheetDescription>
                     </SheetHeader>
                 </SheetContent>
+
             </Sheet>
             <input
                 //This is the hidden file input to select the new image avatar

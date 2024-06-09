@@ -28,6 +28,7 @@ import { toast } from "@/components/ui/use-toast"
 import { redirect, useParams, useRouter } from "next/navigation"
 import { useState } from "react"
 import { CheckBoxSimple } from "@/components/CheckBoxSimple"
+import {getUsernameInfo} from '@/lib/getUsernameInfo'
 
 const FormSchema = z.object({
     title: z.string().min(1, {
@@ -64,12 +65,17 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
     const router = useRouter();
     const [userWantsToSeeThePost, setUserWantsToSeeThePost] = useState(true);
 
-    const navigateToPosById = (data: DataAfterPost) => {
 
+
+    const navigateToPosById = async (data: DataAfterPost) => {
+        // TODO: Generate a unique UUID for each post, and make it an object
+        // with all the requiered information from the form + the userInfo data.
+        const userInfo = await getUsernameInfo();
         let titleOfPost = data.title;
         titleOfPost = titleOfPost.trim();
+        
         titleOfPost = titleOfPost.replace(/\s+/g, '-'); // Replaces all spaces with hyphens.
-        router.push(`/username/post/${titleOfPost}`);
+        router.push(`/${userInfo.displayName}/post/${titleOfPost}`);
     }
 
     async function onSubmit(values: z.infer<typeof FormSchema>) {
@@ -110,14 +116,14 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
         <section className=''>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-8 flex flex-col text-center w-full">
+                    className="space-y-8 flex flex-col text-center w-full ">
 
                     <FormField
                         control={form.control}
                         name="title"
                         render={({ field }) => (
-                            <FormItem className="flex flex-col justify-center">
-                                <FormLabel>Title</FormLabel>
+                            <FormItem className="flex flex-col justify-center ">
+                                <FormLabel >Title</FormLabel>
                                 <FormControl>
                                     <Input
                                         className="text-center w-8/12 sm:w-80 mx-auto"
@@ -125,17 +131,17 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                                         alt="Name of the post" autoFocus
                                         {...field} />
                                 </FormControl>
-                                <FormMessage />
+                                {/* <FormMessage /> */}
                             </FormItem>
                         )}
                     />
 
-                    <FormField
+                    {/* <FormField
                         control={form.control}
                         name="category"
                         render={({ field }) => (
                             <FormItem className="flex flex-col items-center">
-                                <FormLabel >Category</FormLabel>
+                                <FormLabel>Category</FormLabel>
                                 <Select onValueChange={field.onChange}
                                     defaultValue={field.value}>
                                     <FormControl>
@@ -143,21 +149,15 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                                             <SelectValue placeholder="Select a category" />
                                         </SelectTrigger>
                                     </FormControl>
-                                    <SelectContent>
-                                        <SelectItem className="bg-slate-950" value="Default">Default</SelectItem>
-                                        <SelectItem value="Kant">Kant</SelectItem>
-                                        <SelectItem value="Hegel">Hegel</SelectItem>
-                                        <SelectItem value="Wittgenstein">Wittgenstein</SelectItem>
-                                        <SelectItem value="Aristotle">Aristotle</SelectItem>
-                                        <SelectItem value="Spinoza">Spinoza</SelectItem>
-                                        <SelectItem value="Leibniz">Leibniz</SelectItem>
-                                        <SelectItem value="Frege">Frege</SelectItem>
+                                    <SelectContent defaultValue="Post">
+                                        <SelectItem className="bg-slate-950" value="Post">Post</SelectItem>
+                                        <SelectItem value="Question">Question</SelectItem>
                                     </SelectContent>
                                 </Select>
                                 <FormMessage />
                             </FormItem>
                         )}
-                    />
+                    /> */}
 
                     <FormField
                         control={form.control}
@@ -199,7 +199,17 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                         )}>
 
                     </FormField>
-                    <Button type="submit">Submit</Button>
+                    <button 
+                    type="submit"
+                    className="cursor-pointer rounded-md h-12 bg-gradient-to-r 
+                    text-white font-extrabold transition 
+                    duration-200 ease-in-out from-green-500 to-green-900 
+                    hover:from-green-900 hover:to-green-400
+                    hover:bg-green-600 hover:shadow-lg hover:brightness-125"
+                    >
+                    Submit
+                    </button>
+
                 </form>
             </Form>
         </section>

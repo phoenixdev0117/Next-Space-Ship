@@ -64,13 +64,15 @@ export default function AccountPage() {
             router.push('/Login');
         }
 
-        const getColor = async () => {
-            if (userInfo?.photoURL === '') return;
-            const photoAvgColor: any = await getImageAverageColor(userInfo?.photoURL); //TODO: Type this
-            console.log('Photo average color:', photoAvgColor);
-            setPhotoAvgColor(photoAvgColor);
-        };
-        getColor();
+        // This cuases CORS problems. I will fix it later
+
+        // const getColor = async () => {
+        //     if (userInfo?.photoURL === '') return;
+        //     const photoAvgColor: any = await getImageAverageColor(userInfo?.photoURL); //TODO: Type this
+        //     console.log('Photo average color:', photoAvgColor);
+        //     setPhotoAvgColor(photoAvgColor);
+        // };
+        // getColor();
 
     }
 
@@ -81,11 +83,13 @@ export default function AccountPage() {
 
         <main className="justify-center items-center">
 
-            <div className="flex flex-col sm:flex-row justify-center items-center w-full">
+            <div className="flex flex-col sm:flex-row justify-center items-center w-full ">
                 <div className="flex flex-col w-7/12 md:w-4/12  pb-10">
-                    <section className={`bg-gradient-to-tr bg-from-blue-600 bg-to-black 
+                    <section className={`bg-gradient-to-tr 
+                    bg-sky-950/100 bg-from-blue-600 bg-via-red-500 bg-to-black
+                    border-2 
                     flex flex-col text-center m-1 gap-2 py-6 my-6
-                    bg-color-body-general border-2 border-solid border-white/50 rounded-xl
+                    border-solid border-white/60 rounded-xl
                     ${(photoAvgColor) !== '' ? `border-${photoAvgColor}-400` : ''}
                     `}
                         style={{
@@ -137,7 +141,7 @@ export default function AccountPage() {
 
                                 <div className="flex flex-row justify-center py-4">
                                     <Button onClick={() => handleLogOut()}
-                                        className='py-5 flex' variant={"destructive"}>
+                                        className='py-5 sm:px-20 flex' variant={"destructive"}>
                                         Logout
                                     </Button>
                                 </div>

@@ -25,13 +25,19 @@ export function ModeToggle() {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
-                    Light
+                <DropdownMenuItem className="cursor-wait" 
+                onClick={
+                    // () => setTheme("light")
+                    () => console.log('Light theme is not ready yet')
+                    }>
+                    Light (Working on it)
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                <DropdownMenuItem className="cursor-pointer" 
+                onClick={() => setTheme("dark")}>
                     Dark
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
+                <DropdownMenuItem className="cursor-pointer"
+                 onClick={() => setTheme("system")}>
                     System
                 </DropdownMenuItem>
             </DropdownMenuContent>

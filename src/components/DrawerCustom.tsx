@@ -44,89 +44,51 @@ export const CustomDrawer = ({ data, isHome = true }) => {
                     </DrawerTrigger>
                     <DrawerContent >
                         <DrawerHeader className='h-screen flex flex-col justify-around
-                         bg-black/60 overflow-y-auto pt-44'>
+                        px-0
+                         bg-black/60 overflow-y-auto pt-24'>
 
-                            <DrawerTitle className='text-center'>{data.name}</DrawerTitle>
+                             <div className='flex flex-col justify-evenly space-y-6'>
+                            <DrawerTitle className='pt-6 font-bold text-center'>
+                                <h3 className='select-text'>
+                                Post made by {data.name}
+                                </h3>
+                            </DrawerTitle>
                             <Image
                                 src={data.images[0]}
                                 alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
+                                className='rounded-3xl self-center 
+                                
+                                h-24 w-24 md:h-30 md:w-30 object-cover'
                                 width={200}
                                 height={200}
                             />
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
+                            </div>
 
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
-                            <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
-                                className='rounded-3xl self-center'
-                                width={200}
-                                height={200}
-                            />
-                            <DrawerDescription className='text-center'>{data.name}</DrawerDescription>
+                            <h1>
+                                <DrawerTitle className='font-bold text-center -my-6 '>
+                                    <h3 className='select-text font-extrabold text-xl sm:text-2xl'>
+                                        Title of the post
+                                    </h3>
+                                </DrawerTitle>
+                            </h1>
+
+                            <DrawerDescription className='text-center mx-6 sm:mx-4
+                            text-xs sm:text-sm mb-10
+                             flex-wrap sm:w-10/12 md:w-10/12 lg:w-9/12 xl:w-8/12 self-center'>
+                                
+                                <p className='select-text'>
+                                {data.jutsu}
+                                </p>
+                                
+                                </DrawerDescription>
                         </DrawerHeader>
                         <DrawerFooter className='bg-black/60'>
                         <DrawerClose className="h-14 text-xl mb-4 border-solid border-2 border-cyan-900/0
                         border-red-white font-bold w-10/12 md:w-8/12 xl:w-5/12 self-center
                          rounded-lg bg-gradient-to-r from-blue-700/40 via-cyan-500/70 to-blue-700/40
                          cursor-pointer hover:brightness-125">
-    Close
-</DrawerClose>
+                    Close
+                </DrawerClose>
 
                         </DrawerFooter>
                     </DrawerContent>
