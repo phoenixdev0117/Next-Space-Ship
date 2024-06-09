@@ -103,8 +103,11 @@ export default function AccountPage() {
 
                         {(userInfo?.displayName !== '') ? (
                             <div>
-                                <Button variant={"secondary"} className="font-bold text-xl mx-auto my-6"
-                                >Welcome {userInfo?.displayName}</Button>
+                                <span 
+                                className="font-bold text-xl mx-auto my-6 bg-sky-950/100
+                                brightness-200 py-2
+                                px-6 rounded-2xl "
+                                >Welcome {userInfo?.displayName}</span>
 
                                 <div className='h-32 w-32 flex flex-col justify-center mx-auto'>
                                     {(userInfo?.photoURL) !== '' ? (
@@ -139,9 +142,9 @@ export default function AccountPage() {
                                     }
                                 </div>
 
-                                <div className="flex flex-row justify-center py-4">
+                                <div className="flex flex-row justify-center py-4 ">
                                     <Button onClick={() => handleLogOut()}
-                                        className='py-5 sm:px-20 flex' variant={"destructive"}>
+                                        className='py-5 sm:px-24 flex font-bold text-sm' variant={"destructive"}>
                                         Logout
                                     </Button>
                                 </div>

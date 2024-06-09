@@ -43,13 +43,13 @@ export const CustomDrawer = ({ data, isHome = true }) => {
                         <CustomCard data={data}/>
                     </DrawerTrigger>
                     <DrawerContent >
-                        <DrawerHeader className='h-screen flex flex-col justify-around
-                        px-0
-                         bg-black/60 overflow-y-auto pt-24'>
+                        <DrawerHeader className='h-screen  flex flex-col justify-around
+                        px-0 bg-black/60 overflow-y-auto pt-52 sm:pt-36'>
 
                              <div className='flex flex-col justify-evenly space-y-6'>
                             <DrawerTitle className='pt-6 font-bold text-center'>
                                 <h3 className='select-text'>
+                                    {/* TODO: I NEED TO SET MORE TOP MARGIN BECAUSE R-DESIGN */}
                                 Post made by {data.name}
                                 </h3>
                             </DrawerTitle>

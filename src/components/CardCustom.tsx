@@ -41,7 +41,7 @@ export const CustomCard: React.FC<CustomCardProps> = ({ data }) => {
           h-96 bg-gradient-to-r from-cyan-400/10 via-blue-900/70
            to-cyan-200/15 sm:-mx-4 md:mx-10 lg:mx-4 sm:w-10/12 md:w-11/12
           hover:bg-from-black hover:bg-via-red-700/50 hover:bg-to-black hover:brightness-110
-          w-72
+          w-11/12
             
           ">
             

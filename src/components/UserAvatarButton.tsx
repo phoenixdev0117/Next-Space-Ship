@@ -14,6 +14,8 @@ export const UserAvatarButton: React.FC<UserAvatarButtonProps> = ({ photoURL, on
 
 
     const [imageLoaded, setImageLoaded] = useState(false);
+1
+
 
     const imageLoadedFunction = () => {
         setImageLoaded(true);
@@ -28,8 +30,8 @@ export const UserAvatarButton: React.FC<UserAvatarButtonProps> = ({ photoURL, on
                 <Image
                     src={`${photoURL || '/logo.jpeg'}`}
                     alt="Profile Picture Image (Avatar)"
-                    width={80}
-                    height={80}
+                    width={120}
+                    height={120}
                     className={`${imageLoaded ? '' : `hidden`} 
                     rounded-full object-cover w-24 h-24
                     self-center border-2 border-white/0 border-solid

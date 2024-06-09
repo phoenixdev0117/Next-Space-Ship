@@ -6,7 +6,13 @@ import { updateProfile } from 'firebase/auth';
 import { updateUserInfo } from '@/lib/updateUserInfo';
 // import { usePathname } from 'next/navigation';
 
-const FirebaseUploadAvatar = async (userInfo, imageURL) => {
+
+const getAvatarLocalStore = async () => {
+    const avatar = await localStorage.getItem(`ss_forum_avatar`);
+    return avatar;
+}
+
+const FirebaseUploadAvatar = async (userInfo, imageURL, setCounterOfChanges) => {
 
 
     // let pathname = usePathname();
@@ -58,6 +64,7 @@ const FirebaseUploadAvatar = async (userInfo, imageURL) => {
 
     try {
         const res = await uploadImage(userInfo, imageURL);
+        setCounterOfChanges( (prev) => prev + 1);
         return res;
     } catch (error) {
         console.error('Error:', error);
@@ -69,7 +76,7 @@ const FirebaseUploadAvatar = async (userInfo, imageURL) => {
 const FirebaseDownloadAvatar = (userInfo, imageURL) => {
     //TODO: Unfinished function, that's why looks like a mess (or a copy from above function)
 
-    const uploadImage = async (userInfo, imageURL) => {
+    const downloadUserImage = async (userInfo, imageURL) => {
 
         const metadata = {
             contentType: 'image/jpeg' // MIME type of the file
@@ -95,8 +102,8 @@ const FirebaseDownloadAvatar = (userInfo, imageURL) => {
             return null
         }
     }
-    uploadImage(userInfo, imageURL)
+    downloadUserImage(userInfo, imageURL)
 
 }
 
-export { FirebaseUploadAvatar, FirebaseDownloadAvatar }
+export { FirebaseUploadAvatar, FirebaseDownloadAvatar, getAvatarLocalStore }
