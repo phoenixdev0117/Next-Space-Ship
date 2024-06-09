@@ -26,7 +26,8 @@ export default async function Home({
 
   return (
     <main>
-      <div className="flex flex-col md:flex-row justify-center items-center w-full">
+      <div className="flex flex-col md:flex-row justify-center items-center 
+      w-full overflow-hidden">
         <div className="flex flex-col w-8/12 pb-10">
 
 

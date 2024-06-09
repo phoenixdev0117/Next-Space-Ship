@@ -7,6 +7,10 @@ import { ModeToggle } from "@/components/dark-toggle";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useRouter } from 'next/navigation';
+import { initializeAuth, onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useContext } from 'react';
+import { auth } from '@/app/firebase/firebaseConfig';
+
 
 export const Navbar = () => {
 
@@ -43,6 +47,16 @@ export const Navbar = () => {
         }
     }
 
+
+    const [currentUser, setCurrentUser] = useState(auth.currentUser);
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+          setCurrentUser(user);
+        });
+        console.log('superman', currentUser);
+        return unsubscribe;
+      }, [currentUser]);
+    
     return (
         <>
             <nav className="w-full py-2 border-b-2 bg-gradient-to-r from-black via-blue-700/20 to-black"

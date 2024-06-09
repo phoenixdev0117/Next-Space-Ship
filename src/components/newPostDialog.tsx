@@ -49,7 +49,9 @@ export function NewPostDialog() {
 
                     </AlertDialogTrigger>
 
-                    {(submitted === false) ? (<AlertDialogContent>
+                    {(submitted === false) ? (<AlertDialogContent className="bg-blue-400 w-11/12
+                    sm:w-10/12 lg:min-w-max
+                    border-2 border-white rounded-3xl">
                         <AlertDialogHeader className="">
                             <AlertDialogCancel className='self-end'>
                                 x

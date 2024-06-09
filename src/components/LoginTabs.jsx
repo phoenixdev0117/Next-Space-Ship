@@ -6,10 +6,10 @@ import { RegisterForm } from "@/components/RegisterForm";
 
 export const LoginTabs = () => {
     return (
-        <Tabs defaultValue="account" className="w-auto">
-            <TabsList >
+        <Tabs defaultValue="account" className="w-auto space-y-2 sm:space-y-6">
+            <TabsList>
                 <TabsTrigger className='' value="account">Log in</TabsTrigger>
-                <TabsTrigger value="password">Register</TabsTrigger>
+                <TabsTrigger value="register">Register</TabsTrigger>
 
 
             </TabsList>
@@ -17,7 +17,7 @@ export const LoginTabs = () => {
                 <LoginForm>
                 </LoginForm>
             </TabsContent>
-            <TabsContent value="password">
+            <TabsContent value="register">
                 <RegisterForm>
                 </RegisterForm>
             </TabsContent>
