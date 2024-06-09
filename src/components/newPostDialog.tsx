@@ -36,12 +36,12 @@ export function NewPostDialog() {
                     <AlertDialogTrigger >
                         <button
                             tabIndex={0}
-                            className="px-4 ml-10 py-2 font-bold rounded-xl mx-10 border-solid border-green-500/0
+                            className="px-6 ml-10 py-2 font-bold rounded-xl w-42 mx-10 border-green-800
                             cursor-pointer  bg-gradient-to-r border-2
-                            transition duration-75  ease-in-out from-green-800 to-green-400
-                              hover:from-green-700 via-green-500 hover:to-green-300 
+                            transition duration-75  ease-in-out from-green-400 to-green-800
+                              hover:from-green-800 hover:to-green-400
                               hover:bg-green-600 hover:border-cyan-100 hover:shadow-lg hover:scale-110
-                              hover:brightness-110"
+                              hover:brightness-125"
                         >
                             + NewPost
                         </button>
@@ -52,13 +52,14 @@ export function NewPostDialog() {
                     {(submitted === false) ? (<AlertDialogContent>
                         <AlertDialogHeader className="">
                             <AlertDialogCancel className='self-end'>
-                                X
+                                x
                             </AlertDialogCancel>
 
                             <AlertDialogTitle className="text-center">
                                 <p className="text-center pb-6">Write a new post</p>
                                 <section aria-label="New post section">
-                                    <RegisterForm setSubmitted={setSubmitted} setHasBeenSuccessful={setHasBeenSuccessful}>
+                                    <RegisterForm
+                                    setSubmitted={setSubmitted} setHasBeenSuccessful={setHasBeenSuccessful}>
 
                                     </RegisterForm>
                                 </section>
@@ -68,11 +69,11 @@ export function NewPostDialog() {
                         </AlertDialogDescription> */}
                         </AlertDialogHeader>
                         <AlertDialogFooter>
-                            <AlertDialogCancel className='mx-auto'>Cancel</AlertDialogCancel>
+                            <AlertDialogCancel className='flex-auto'>Cancel</AlertDialogCancel>
                         </AlertDialogFooter>
                     </AlertDialogContent>) :
                         <AlertDialogContent className="h-36 justify-center flex flex-col text-center py-6">
-                            <AlertDialogAction className=" text-sm" onClick={() => setSubmitted(false)}>
+                            <AlertDialogAction className="text-sm" onClick={() => setSubmitted(false)}>
                                 {hasBeenSuccessful ? 'Your post has been posted sucessfully'
                                     : 'An error has been occured, please try again'}
                             </AlertDialogAction>

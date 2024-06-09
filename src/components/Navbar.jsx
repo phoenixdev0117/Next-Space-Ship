@@ -32,7 +32,7 @@ export const Navbar = () => {
     }
 
     const handleKeyDownInput = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && inputSearch !== '') {
             setIsSearchOpen(!isSearchOpen);
             router.push(`/search/${(inputSearch !== '' ? inputSearch : 'blank')}`);
             setInputSearch('');
@@ -144,7 +144,9 @@ export const Navbar = () => {
                     />
 
 
-                    <Link href={`/search/${(inputSearch !== '' ? inputSearch : 'blank')}`}>
+                    <Link href={`${(inputSearch !== '' ?
+                     ('/search/'+inputSearch)
+                         : '/')}`}>
                         <Button type="submit"
                             // className='transition-all animate-pulse'
                             onClick={() => setIsSearchOpen(!isSearchOpen)}>Search
