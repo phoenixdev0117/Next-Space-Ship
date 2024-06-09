@@ -89,7 +89,8 @@ export default function Home({
 
                 </div>
 
-                <div className="flex-row md:flex-col w-2/12 mt-6 h-screen self-start hidden md:inline-flex">
+                <div className="flex-row md:flex-col w-2/12 mt-6 h-screen self-start hidden 
+                lg:inline-flex">
                     <section className="h-auto py-2">
                         <UserSheet data={characters[0]}>
                         </UserSheet>

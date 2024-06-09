@@ -31,7 +31,7 @@ export const CustomDrawer = ({ data, isHome = true }) => {
         <Suspense fallback={
             <div className="flex flex-col justify-center items-center h-screen">
                 <div className="animate-spin rounded-full h-32 w-32 border-t-8 border-b-4 
-                border-cyan-500">
+                border-cyan-400">
                 </div>
                 <span className="my-10 text-xl">Loading ...</span>
             </div>
@@ -39,7 +39,7 @@ export const CustomDrawer = ({ data, isHome = true }) => {
             <div className={`flex flex-col ${isHome ? 'items-left' : 'items-center'} justify-center`}>
 
                 <Drawer>
-                    <DrawerTrigger className='w-12/12 md:w-10/12 xl:w-12/12'>
+                    <DrawerTrigger className='w-12/12 md:w-12/12 lg:max-w-4xl'>
                         <CustomCard data={data}/>
                     </DrawerTrigger>
                     <DrawerContent >

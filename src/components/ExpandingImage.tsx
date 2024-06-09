@@ -36,13 +36,14 @@ export function ExpandingImage({ src, alt, width, height, expandSpeed }) {
             expandImage();
         }
         else {
+            expandImage();
             setCurrentSize(height || width);
         }
 
         return () => {
             // Clean the effect when the component unmounts
         };
-    }, [currentSize, expandSpeed]); // Añadir las dependencias aquí
+    }, [currentSize, expandSpeed,isFirefox,height,width ]); // Añadir las dependencias aquí
 
 
     // const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
