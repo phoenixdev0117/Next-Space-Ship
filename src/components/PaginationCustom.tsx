@@ -33,29 +33,34 @@ export const PaginationCustom: React.FC<PaginationCustomProps> = ({ currentPage,
 
     return (
         <Pagination>
-            <PaginationContent>
+            <PaginationContent >
 
 
                 {currentPage === 1 ? null :
-                    <PaginationItem>
-                        <PaginationPrevious href={currentPage > 2 ? `${currentPage - 1}` : `/`} />
+                    <PaginationItem >
+                        <PaginationPrevious  className="text-xs sm:text-base" 
+                        href={currentPage > 2 ? `${currentPage - 1}` : `/`} />
                     </PaginationItem>}
                 {currentPage === 1 ? null :
                     <PaginationItem>
-                        <PaginationLink href={currentPage > 3 ? `${currentPage - 1}` : `/`}>
+                        <PaginationLink 
+                        className="text-xs sm:text-base "
+                        href={currentPage > 2 ? `${currentPage - 1}` : `/`}>
                             {currentPage > 1 ? currentPage - 1 : null}
                         </PaginationLink>
                     </PaginationItem>}
 
 
                 {currentPage !== totalPages ? null :
-                    <PaginationItem>
+                    <PaginationItem >
                         <PaginationEllipsis />
                     </PaginationItem>}
 
 
                 <PaginationItem>
-                    <PaginationLink href="#" isActive>
+                    <PaginationLink 
+                    className="text-xs sm:text-base" 
+                    href="#" isActive>
                         {currentPage}
                     </PaginationLink>
                 </PaginationItem>
@@ -63,20 +68,24 @@ export const PaginationCustom: React.FC<PaginationCustomProps> = ({ currentPage,
 
                 {(currentPage === totalPages || currentPage + 1 === totalPages) ? null :
                     <PaginationItem>
-                        <PaginationLink href={`${currentPage + 1}`}>
+                        <PaginationLink className="text-xs sm:text-base"  
+                        href={`${currentPage + 1}`}>
                             {currentPage + 1}
                         </PaginationLink>
                     </PaginationItem>
                 }
 
                 {currentPage === totalPages ? null :
-                    <PaginationItem>
+                    <PaginationItem
+                    className="text-xs sm:text-base" >
                         <PaginationEllipsis />
                     </PaginationItem>}
 
                 {(currentPage === totalPages) ? null :
                     <PaginationItem>
-                        <PaginationLink href={`${totalPages}`}>
+                        <PaginationLink 
+                        className="text-xs sm:text-base" 
+                        href={`${totalPages}`}>
                             {currentPage === totalPages ? null : totalPages}
                         </PaginationLink>
                     </PaginationItem>
@@ -84,7 +93,9 @@ export const PaginationCustom: React.FC<PaginationCustomProps> = ({ currentPage,
 
                 {currentPage === totalPages ? null :
                     <PaginationItem>
-                        <PaginationNext href={currentPage < totalPages ? `${currentPage + 1}` : `${totalPages}`} />
+                        <PaginationNext 
+                        className="text-xs sm:text-base" 
+                        href={currentPage < totalPages ? `${currentPage + 1}` : `${totalPages}`} />
                     </PaginationItem>}
             </PaginationContent>
         </Pagination>

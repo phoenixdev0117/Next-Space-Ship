@@ -21,7 +21,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
-import { postNewPostFirebase } from "@/lib/actions"
+import { postNewPostFirebase } from "@/lib/newPost"
 // import { SelectCategory } from "@/components/newPostSelect"
 import { Link } from "lucide-react"
 import { toast } from "@/components/ui/use-toast"
@@ -46,9 +46,13 @@ const FormSchema = z.object({
 });
 
 interface DataAfterPost {
+    fromUserId: string;
+    postFinalName: string;
+    postDate: Date;
     title: string;
     content: string;
     category: string;
+    usernameToDisplay: string;
 }
 
 export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
@@ -67,15 +71,13 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
 
 
 
-    const navigateToPosById = async (data: DataAfterPost) => {
-        // TODO: Generate a unique UUID for each post, and make it an object
-        // with all the requiered information from the form + the userInfo data.
+    const navigateToPostById = async (postObject: DataAfterPost) => {        
         const userInfo = await getUsernameInfo();
-        let titleOfPost = data.title;
-        titleOfPost = titleOfPost.trim();
+        const titleOfPost = postObject.postFinalName;
+        // titleOfPost = titleOfPost.trim();
+        // titleOfPost = titleOfPost.replace(/\s+/g, '-'); // Replaces all spaces with hyphens.
         
-        titleOfPost = titleOfPost.replace(/\s+/g, '-'); // Replaces all spaces with hyphens.
-        router.push(`/${userInfo.displayName}/post/${titleOfPost}`);
+        router.push(`/post/${titleOfPost}`);
     }
 
     async function onSubmit(values: z.infer<typeof FormSchema>) {
@@ -87,7 +89,7 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
         if (hasBeenPosted) {
             setHasBeenSuccessful(true)
             if (userWantsToSeeThePost) {
-                navigateToPosById(data);
+                navigateToPostById(data);
             }
 
             toast({
@@ -203,9 +205,11 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                     type="submit"
                     className="cursor-pointer rounded-md h-12 bg-gradient-to-r 
                     text-white font-extrabold transition 
-                    duration-200 ease-in-out from-green-500 to-green-900 
+                    duration-3000 ease-out from-green-500 to-green-900 
                     hover:from-green-900 hover:to-green-400
-                    hover:bg-green-600 hover:shadow-lg hover:brightness-125"
+                    hover:bg-green-600 hover:shadow-lg hover:brightness-125 
+                    active:scale-90 active:brightness-150 hover:scale-105 
+                     animate-brightness-150 hover:animate-none hover:duration-200"
                     >
                     Submit
                     </button>

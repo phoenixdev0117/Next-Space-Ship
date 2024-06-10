@@ -59,7 +59,7 @@ export function ExpandingImage({ src, alt, width, height, expandSpeed }) {
                     width={currentSize}
                     height={currentSize}
                     className={`rounded-md self-center border-2 border-white/70 mx-auto
-                     border-solid hover:border-white object-cover h-32 w-32`}
+                     border-solid hover:border-white object-cover h-32 w-32 hover:animate-pulse`}
                 />
             ) : (<Image
                 src={`${src || '/logo.jpeg'}`}
@@ -68,7 +68,8 @@ export function ExpandingImage({ src, alt, width, height, expandSpeed }) {
                 height={currentSize}
                 className={`rounded-md self-center border-2
                  border-white/70
-                 border-solid hover:border-white object-cover h-32 w-32`}
+                 border-solid hover:border-white object-cover h-32 w-32 hover:animate-pulse
+                 active:scale-95`}
             />)}
         </div>
     );

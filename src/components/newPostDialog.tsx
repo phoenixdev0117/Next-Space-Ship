@@ -38,10 +38,12 @@ export function NewPostDialog() {
                             tabIndex={0}
                             className="px-6 ml-10 py-2 font-bold rounded-xl w-42 mx-10 border-green-800
                             cursor-pointer  bg-gradient-to-r border-2
-                            transition duration-75  ease-in-out from-green-400 to-green-800
+                            transition ease-in-out from-green-400 to-green-800
                               hover:from-green-800 hover:to-green-400
                               hover:bg-green-600 hover:border-cyan-100 hover:shadow-lg hover:scale-110
-                              hover:brightness-125"
+                              hover:brightness-125 active:scale-95 active:brightness-150
+                              "
+                        
                         >
                             + NewPost
                         </button>

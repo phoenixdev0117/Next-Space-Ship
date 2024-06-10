@@ -21,6 +21,8 @@ export default function AccountPage() {
                     <section className="flex flex-col text-center m-1 gap-2 py-10 my-6"
                         style={{ backgroundColor: 'var(--color-body-general)', borderColor: 'var(--muted-foreground)' }}>
                         <Button variant={"outline"}>You has searched for: {pathname}</Button>
+                        <p>Sorry, but the search is not available at the moment, 
+                            but we are workind on it!</p>
                     </section>
                     <PaginationCustom currentPage={1} totalPages={10} />
                 </div>

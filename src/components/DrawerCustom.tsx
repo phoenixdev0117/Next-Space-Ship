@@ -1,5 +1,6 @@
+'use client'
 import React, { Suspense } from 'react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useLayoutEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import {
     Drawer,
@@ -13,19 +14,30 @@ import {
 } from "@/components/ui/drawer"
 import { CustomCard } from "@/components/CardCustom";
 import Image from 'next/image';
-
-interface CustomDrawerProps {
-    data: {
-        name: string;
-        jutsu: string;
-        images: string;
-    };
-}
+import { retrieveAvatar } from '@/lib/retrieveAvatar';
 
 
 export const CustomDrawer = ({ data, isHome = true }) => {
     // We solve this when the firebase posts are done
     // : React.FC<CustomDrawerProps> 
+    const [avatar, setAvatar] = useState('/logo.jpeg');
+
+    useLayoutEffect(() => {
+    if (data?.fromUserId !== null) {
+        const avatarFunc = async (userId) =>{
+            const retrievedAvatar = await retrieveAvatar(data?.fromUserId );
+            if (retrievedAvatar === null) {
+                setAvatar('/logo.jpeg');
+                return '/logo.jpeg';
+            }
+            setAvatar(retrievedAvatar);
+            console.log("CORRECTO", retrievedAvatar)
+            return retrievedAvatar;
+        }
+
+        avatarFunc(data?.fromUserId );
+    }
+    }, [data?.fromUserId]);
 
     return (
         <Suspense fallback={
@@ -39,23 +51,22 @@ export const CustomDrawer = ({ data, isHome = true }) => {
             <div className={`flex flex-col ${isHome ? 'items-left' : 'items-center'} justify-center`}>
 
                 <Drawer>
-                    <DrawerTrigger className='w-12/12 md:w-12/12 lg:max-w-4xl'>
-                        <CustomCard data={data}/>
+                    <DrawerTrigger className='w-12/12 md:w-12/12 lg:max-w-4xl select-none'>
+                        <CustomCard data={data} avatarURL={avatar}/>
                     </DrawerTrigger>
                     <DrawerContent >
-                        <DrawerHeader className='h-screen  flex flex-col justify-around
+                        <DrawerHeader className='overflow-x-hidden h-screen  flex flex-col justify-around
                         px-0 bg-black/60 overflow-y-auto pt-52 sm:pt-36'>
 
                              <div className='flex flex-col justify-evenly space-y-6'>
-                            <DrawerTitle className='pt-6 font-bold text-center'>
+                            <DrawerTitle className='pt-6 font-bold text-center w-8/12 mx-auto'>
                                 <h3 className='select-text'>
-                                    {/* TODO: I NEED TO SET MORE TOP MARGIN BECAUSE R-DESIGN */}
-                                Post made by {data.name}
+                                Post made by {data?.usernameToDisplay}
                                 </h3>
                             </DrawerTitle>
                             <Image
-                                src={data.images[0]}
-                                alt={data.name + ' image'}
+                                src={avatar || '/logo.jpeg'}
+                                alt={data?.usernameToDisplay + ' Avatar Image'}
                                 className='rounded-3xl self-center 
                                 
                                 h-24 w-24 md:h-30 md:w-30 object-cover'
@@ -65,19 +76,22 @@ export const CustomDrawer = ({ data, isHome = true }) => {
                             </div>
 
                             <h1>
-                                <DrawerTitle className='font-bold text-center -my-6 '>
-                                    <h3 className='select-text font-extrabold text-xl sm:text-2xl'>
-                                        Title of the post
+                                <DrawerTitle className='font-bold text-center w-10/12 mx-auto'>
+                                    <h3 className='select-text font-extrabold text-xl break-words
+                                    sm:text-2xl my-6'>
+                                        {data?.title}
                                     </h3>
                                 </DrawerTitle>
                             </h1>
 
-                            <DrawerDescription className='text-center mx-6 sm:mx-4
-                            text-xs sm:text-sm mb-10
-                             flex-wrap sm:w-10/12 md:w-10/12 lg:w-9/12 xl:w-8/12 self-center'>
+                            <DrawerDescription className='flex flex-col text-center mx-4 
+                            sm:mx-auto sm:text-sm mb-10 h-96
+                            justify-center
+                             flex-nowrap w-11/12 sm:w-10/12 md:w-10/12 lg:w-9/12 xl:w-8/12 self-center 
+                             break-words'>
                                 
-                                <p className='select-text'>
-                                {data.jutsu}
+                                <p className='select-text text-center'>
+                                {data?.content}
                                 </p>
                                 
                                 </DrawerDescription>
