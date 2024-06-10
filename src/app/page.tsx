@@ -23,7 +23,7 @@ export default function Home({
 
 
   const isInfoTouched = false;
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<any>([]);
 
   useEffect(() => {
     const fetchData = async () => {
