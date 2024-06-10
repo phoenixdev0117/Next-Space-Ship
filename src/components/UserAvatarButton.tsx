@@ -23,7 +23,7 @@ export const UserAvatarButton: React.FC<UserAvatarButtonProps> = ({ photoURL, on
         console.log(photoURL)
     }
     return (
-        <div className=''>
+        <div className='select-none'>
             <span
                 onClick={() => console.log('Avatar clicked')}
             >
@@ -36,8 +36,8 @@ export const UserAvatarButton: React.FC<UserAvatarButtonProps> = ({ photoURL, on
                     rounded-full object-cover w-24 h-24
                     self-center border-2 border-white/0 border-solid
                     transition duration-150 ease-in-out hover:border-white
-                    hover:animate-pulse 
-                    hover:scale-110
+                     
+                    hover:scale-110 hover:brightness-110 active:scale-95
                     `}
                     priority // Does not work without this
                     onLoad={() => imageLoadedFunction()}

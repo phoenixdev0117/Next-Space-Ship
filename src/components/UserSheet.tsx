@@ -97,7 +97,7 @@ export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {
         const res = await logOutFromAccount();
         if (res) {
             router.push('/')
-            window.location.reload();
+            globalThis.location.reload();
             setUserInfo({
                 photoURL: '',
                 uid: '',
@@ -217,7 +217,7 @@ export const UserSheet: React.FC<CustomSheetProps> = ({ data }) => {
 
                         {(counterOfChanges > 0 && userInfo?.displayName) ? (
                             <div className="my-4 text-lg"> 
-                        <text className="my-4 text-lg text-sky-100">Your new Avatar has been uploaded,
+                        <text className="my-4 text-lg text-sky-100">Your new Avatar has been updated,
                     but can take a few seconds to update, please be patient.
                         </text>
                         </div>) : (

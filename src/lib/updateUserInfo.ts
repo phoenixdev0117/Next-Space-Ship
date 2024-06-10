@@ -37,7 +37,7 @@ export const updateUserInfo = async (
             // userAuth.photoURL = newProfileURL;
             const serializedUser = JSON.stringify(userAuth);
             localStorage.setItem('_firebaseUserEntityWithPhotoAndUsername', serializedUser);
-            window.location.href = `/Account`;
+            globalThis.location.href = `/Account`;
         }
 
         // return user;

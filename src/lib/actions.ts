@@ -1,4 +1,9 @@
 'use server'
+//importa postNewPostFirebase
+import { addDoc, doc, collection } from '@firebase/firestore';
+import { database } from '@/app/firebase/firebaseConfig';
+import { auth } from '@/app/firebase/firebaseConfig';
+import {postNewPostFirebase} from '@/lib/newPost';
 
 export async function fetchAllPosts() {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -10,22 +15,24 @@ export async function fetchPostById(id: number) {
     return res.json();
 }
 
-export async function postNewPostFirebase(data: any) {
-    //TODO: We need to validate if the user is logged in, only then we can post a new post
-    // with his user id and username in it (FirebaseStorage service to push posts, not Storage)..
-    // Important: this funciton has to return a boolean value, and al the response of posts generadted by firebase.
 
-    console.log('trying post:', data)
+// export async function postNewPostFirebase(data: any) {
+//     //TODO: We need to validate if the user is logged in, only then we can post a new post
+//     // with his user id and username in it (FirebaseStorage service to push posts, not Storage)..
+//     // Important: this funciton has to return a boolean value, and al the response of posts generadted by firebase.
 
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    });
-    return [true, data]; // Here, data is the data for the form, we need to change this to the response of the post in firebase.
-}
+//     console.log('trying post:', data)
+
+//     const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+//         method: 'POST',
+//         body: JSON.stringify(data),
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8',
+//         },
+        
+//     });
+//     return [true, data]; // Here, data is the data for the form, we need to change this to the response of the post in firebase.
+// }
 
 // TODO: THE FUNCTION BELOW HERE IS DEPRECATED, DO NOT USE IT, USE lib/FirebaseUploadAvatar INSTEAD
 // export async function postNewImageFirebase(data: any) {

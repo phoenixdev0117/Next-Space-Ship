@@ -29,7 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen">
-            <header className="justify-center items-center pb-4">
+            <header className="justify-center items-center pb-4 select-none">
               <Navbar />
             </header>
             {children}
