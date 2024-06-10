@@ -16,7 +16,9 @@ import { useEffect, useState, useLayoutEffect } from 'react';
 import {retrieveAvatar} from '@/lib/retrieveAvatar'
 
 
-export const CustomCard: React.FC<CustomCardProps> = ({ data, avatarAuthorURL }) => {
+
+
+export const CustomCard: React.FC<any> = ({ data, avatarAuthorURL }) => {
 
 
     const [avatarAuthor, setAvatarAuthor] = useState<string>('/logo.jpeg');
