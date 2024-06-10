@@ -30,8 +30,7 @@ export default function Home({
         try {
 
             fetchPosts(1).then((arrayOfPosts) => {
-                setPosts(arrayOfPosts);
-                console.log('catttttt', arrayOfPosts)
+                setPosts(arrayOfPosts); // @ts-ignore
             });
 
         } catch (error) {
