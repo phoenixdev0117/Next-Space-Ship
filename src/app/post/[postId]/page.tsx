@@ -39,8 +39,7 @@ export default function Home({
 
 
 
-    const [characters, setCharacters] = useState<any[]>([]);
-    const [postData, setPostData] = useState<DataAfterPost>(null);
+    const [postData, setPostData] = useState<any>(null);
     const [avatar, setAvatar] = useState<string>('/logo.jpeg');
     
 
@@ -152,7 +151,7 @@ export default function Home({
                 <div className="flex-row md:flex-col w-2/12 mt-6 h-screen self-start hidden 
                 lg:inline-flex">
                     <section className="h-auto py-2">
-                        <UserSheet data={characters[0]}>
+                        <UserSheet>
                         </UserSheet>
                     </section>
                     <section className="bg-blue-600/40 h-auto py-6 rounded-lg">
