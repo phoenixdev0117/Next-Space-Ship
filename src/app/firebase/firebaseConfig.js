@@ -1,7 +1,9 @@
 'use client'
 // TODO: Everything is working fine since i changed 'use server' to 'use client'
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth, initializeAuth } from "firebase/auth";
+import { getAuth, initializeAuth , setPersistence,
+    browserSessionPersistence
+} from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
@@ -35,6 +37,14 @@ const storage = getStorage(app);
 
 const auth = initializeAuth(app);
 
+setPersistence(auth, browserSessionPersistence)
+    .then(() => {
+        console.log('Persistence set successfully, the user is', 
+            auth?.currentUser)
+    })
+    .catch((error) => {
+        console.log('Persistence failed: ', error.message)
+    });
 
 export { app, auth, database, storage }
 

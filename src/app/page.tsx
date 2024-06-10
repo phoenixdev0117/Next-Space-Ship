@@ -22,7 +22,6 @@ export default function Home({
 }) {
 
 
-  const isInfoTouched = false;
   const [posts, setPosts] = useState<any>([]);
 
   useEffect(() => {
@@ -102,8 +101,7 @@ export default function Home({
 
                 <section className="bg-blue-600/40 h-auto py-6 rounded-lg my-20 m-4">
                   <p>More widgets here! aaaaa</p>
-                  <p>
-                  </p>
+
                 </section>
               </div>
 

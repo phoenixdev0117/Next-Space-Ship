@@ -97,7 +97,7 @@ export default function Home({
                             </div>
                         ) : null}
 
-                        {posts.length > 0 ? (
+                        {posts?.length > 0 ? (
             <div className="containerLeftCente flex flex-col sm:flex-row w-full">
               
               
@@ -120,7 +120,7 @@ export default function Home({
                     <CustomDrawer key={index} data={post} />))
                 }
 
-              {posts.length === 0 ? (
+              {posts?.length === 0 ? (
                 <div className="flex flex-col justify-center pt-8 items-center">
                     <span className="my-10 text-md">No posts found...</span>
                     </div>) : null}
@@ -135,7 +135,7 @@ export default function Home({
                                     <div className="animate-spin rounded-full h-40 w-40 border-t-4
                                      border-cyan-500">
                                     </div>
-                                    <span className="my-10 text-md">{posts.length === 0 ? (
+                                    <span className="my-10 text-md">{posts?.length === 0 ? (
                 <div className="flex flex-col justify-center pt-8 items-center">
                     <span className="my-10 text-md">Sorry, no posts found here.</span>
                     </div>) : null}</span>

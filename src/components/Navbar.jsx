@@ -53,7 +53,6 @@ export const Navbar = () => {
         const unsubscribe = auth.onAuthStateChanged(user => {
           setCurrentUser(user);
         });
-        console.log('superman', currentUser);
         return unsubscribe;
       }, [currentUser]);
     

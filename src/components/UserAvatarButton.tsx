@@ -19,8 +19,8 @@ export const UserAvatarButton: React.FC<UserAvatarButtonProps> = ({ photoURL, on
 
     const imageLoadedFunction = () => {
         setImageLoaded(true);
-        console.log('Image loaded:');
-        console.log(photoURL)
+        // console.log('Image loaded:');
+        // console.log(photoURL)
     }
     return (
         <div className='select-none'>

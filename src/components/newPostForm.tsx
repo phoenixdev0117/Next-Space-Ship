@@ -104,7 +104,7 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
         else {
             setHasBeenSuccessful(false)
             toast({
-                title: "There was an error posting your post.",
+                title: "Sorry, there was an error posting your post.",
                 description: (
                     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
                         <code className="text-white">{JSON.stringify(values, null, 2)}</code>
@@ -205,11 +205,11 @@ export function RegisterForm({ setSubmitted, setHasBeenSuccessful }) {
                     type="submit"
                     className="cursor-pointer rounded-md h-12 bg-gradient-to-r 
                     text-white font-extrabold transition 
-                    duration-3000 ease-out from-green-500 to-green-900 
+                    duration-2000 ease-out from-green-950 via-green-500 to-green-950 
                     hover:from-green-900 hover:to-green-400
-                    hover:bg-green-600 hover:shadow-lg hover:brightness-125 
+                    hover:bg-green-600 hover:shadow-lg hover:brightness-125
                     active:scale-90 active:brightness-150 hover:scale-105 
-                     animate-brightness-150 hover:animate-none hover:duration-200"
+                     animate-brightness-125 hover:animate-none hover:duration-200"
                     >
                     Submit
                     </button>
