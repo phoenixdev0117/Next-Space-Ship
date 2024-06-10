@@ -1,5 +1,6 @@
 'use client'
 // @ts-nocheck
+
 import { Button } from "@/components/ui/button";
 import { CustomDrawer } from "@/components/DrawerCustom";
 import { PaginationCustom } from "@/components/PaginationCustom";
@@ -32,7 +33,7 @@ export default function Home({
 
 
     const [characters, setCharacters] = useState<any[]>([]);
-    const [posts, setPosts] = useState<DataAfterPost[]>([]);
+    const [posts, setPosts] = useState<any>([]);
 
     const searchParams = useSearchParams();
     let pathname = usePathname();
