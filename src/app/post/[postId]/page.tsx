@@ -11,7 +11,7 @@ import NewPostDialog from "@/components/newPostDialog";
 import {fetchPostById} from '@/lib/retrievePost'
 import Image from 'next/image';
 import {retrieveAvatar} from '@/lib/retrieveAvatar'
-
+import { useRouter } from 'next/navigation';
 
 interface DataAfterPost {
     title: string;
@@ -36,7 +36,7 @@ export default function Home({
     let pathname = usePathname();
     pathname = pathname.replace('/post/', '')
     const pathNumber = Number(pathname);
-
+    const router = useRouter();
 
 
     const [postData, setPostData] = useState<any>(null);
@@ -111,7 +111,11 @@ export default function Home({
                                     {/* <p>{postData?.fromUserId}</p> */}
                                     {/* <p>{postData?.postFinalName}</p> */}
 
-                                    <Image className="mx-auto object-cover rounded-2xl 
+                                    <Image 
+                                onClick={() => {
+                                    router.push(`/profile/${postData?.fromUserId}`);
+                                }}
+                                    className="mx-auto object-cover rounded-2xl 
                                     hover:brightness-110 cursor-pointer
                             active:scale-95
                             hover:scale-110 transition duration-150 ease-in-out 

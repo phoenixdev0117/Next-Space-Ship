@@ -40,6 +40,9 @@ const FirebaseUploadAvatar = async (userInfo, imageURL, setCounterOfChanges) => 
 
         }
 
+        // const cachedAuthResponse = await getUsernameInfo();
+        // console.log('catttttttt',cachedAuthResponse)  
+
         const downloadImage = async (userInfo, imageURL) => {
             const storageRef = ref(storage, `users/${userInfo?.uid}/profileImage.jpg`);
             const url = await getDownloadURL(storageRef);

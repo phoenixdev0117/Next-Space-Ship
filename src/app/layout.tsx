@@ -24,7 +24,7 @@ export default function RootLayout({
         style={{ backgroundColor: 'var(--background)' }}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

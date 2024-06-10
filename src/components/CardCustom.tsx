@@ -48,7 +48,6 @@ export const CustomCard: React.FC<any> = ({ data, avatarAuthorURL }) => {
                     return '/logo.jpeg';
                 }
                 setAvatarAuthor(retrievedAvatar);
-                console.log('JAJAJA',data?.title?.length,data?.title)
                 return retrievedAvatar;
             }
 

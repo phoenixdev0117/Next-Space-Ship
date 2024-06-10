@@ -16,26 +16,26 @@ export const updateUserInfo = async (
 ): Promise<UserData | null> => {
 
     const userAuth = user;
-    console.log('auth' ,auth.currentUser)
-    console.log('AAAAAAAAAAA', user)
     // const userAuth = await getUsernameInfo(); //TODO: Check if the entire function is working properly
 
 
     // if (!newProfileURL) {
     //     newProfileURL = 'https://pbs.twimg.com/profile_images/1737295128379748352/dmNoLspF_400x400.jpg';
     // }
-    
+    const cachedAuthResponse = await getUsernameInfo();
+    console.log('catttttttt',cachedAuthResponse)    
     try {
-        const updatedUserProfile = await updateProfile(auth.currentUser, {
+
+        const updatedUserProfile = await updateProfile(cachedAuthResponse, {
             displayName: newDisplayName,
             photoURL: newProfileURL,
         });
         console.log('RESSSS', updatedUserProfile)
-        console.log('displayName has been from', user.displayName, 'changed to', newDisplayName);
-        if (userAuth) {
+        
+        if (cachedAuthResponse) {
             // userAuth.displayName = newDisplayName;
             // userAuth.photoURL = newProfileURL;
-            const serializedUser = JSON.stringify(userAuth);
+            const serializedUser = JSON.stringify(cachedAuthResponse);
             localStorage.setItem('_firebaseUserEntityWithPhotoAndUsername', serializedUser);
             globalThis.location.href = `/Account`;
         }

@@ -34,7 +34,7 @@ export function NewPostDialog() {
             {
                 <AlertDialog>
                     <AlertDialogTrigger >
-                        <button
+                        <div
                             tabIndex={0}
                             className="px-6 ml-10 py-2 font-bold rounded-xl w-42 mx-10 border-green-800
                             cursor-pointer  bg-gradient-to-r border-2
@@ -46,7 +46,7 @@ export function NewPostDialog() {
                         
                         >
                             + NewPost
-                        </button>
+                        </div>
 
 
                     </AlertDialogTrigger>
