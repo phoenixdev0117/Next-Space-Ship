@@ -48,7 +48,7 @@ export const fetchPosts = async (queryParam: number ): Promise<DataAfterPost | n
                 }
                 currentIndex++;
             });
-            return posts;//TODO: Make an interface for this!
+            return posts as any;//TODO: Make an interface for this!
 
         } catch (error) {
             console.error('Error fetching posts:', error);
