@@ -8,8 +8,8 @@ import { Navbar } from "@/components/Navbar"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SpaceShip Forum",
-  description: "Space Ship Forum - A place to share your thoughts and ideas.",
+  title: "Space Ship Forum",
+  description: "Space Ship Forum - Welcome aboard!",
 };
 
 export default function RootLayout({
