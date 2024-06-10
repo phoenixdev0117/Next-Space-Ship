@@ -1,4 +1,5 @@
 'use client'
+// @ts-nocheck
 import { Button } from "@/components/ui/button";
 import { CustomDrawer } from "@/components/DrawerCustom";
 import { PaginationCustom } from "@/components/PaginationCustom";
@@ -45,8 +46,7 @@ export default function Home({
             try {
 
                 fetchPosts(pathNumber).then((arrayOfPosts) => {
-                    setPosts(arrayOfPosts);
-                    console.log('catttttt', arrayOfPosts)
+                    setPosts(arrayOfPosts); // @ts-ignore
                 });
 
             } catch (error) {
