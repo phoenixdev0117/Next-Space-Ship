@@ -63,7 +63,7 @@ export const CustomDrawer = ({ data, isHome = true }) => {
                              <div className='flex flex-col justify-evenly space-y-6'>
                             <DrawerTitle className='pt-6 font-bold text-center w-8/12 mx-auto'>
                                 <div className='select-text'>
-                                Post made by {data?.postFinalName}
+                                Post made by {data?.usernameToDisplay}
                                 </div>
                             </DrawerTitle>
                             <Image
